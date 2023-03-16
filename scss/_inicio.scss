@@ -46,24 +46,24 @@
     top: 0;
     z-index: 2;
 
+    .checkbtn {
+      display: block;
+      float: right;
+      color: white;
+      font-size: 30px;
+      line-height: 50px;
+      margin-right: 40px;
+      cursor: pointer;
+    }
     nav {
       background-color: #004e63;
 
-      .checkbtn {
-        display: block;
-        float: right;
-        color: white;
-        font-size: 30px;
-        line-height: 50px;
-        margin-right: 40px;
-        cursor: pointer;
-      }
       ul {
         z-index: 2;
         position: fixed;
         width: 100%;
         height: 100vh;
-        background: black;
+        background: #004e63;
         top: 45px;
         left: -100%;
         text-align: center;
@@ -120,8 +120,8 @@
 
   footer {
     font-size: 100%;
-    background: #004e63;
-    height: 10%;
+    background-color: #004e63;
+
     border-top: 2px solid rgba(0, 0, 0, 0.24);
     display: flex;
     /*  poner footer abajo */
@@ -218,8 +218,7 @@
 
   footer {
     font-size: 100%;
-    background: #004e63;
-    height: 10%;
+    background-color: #004e63;
     border-top: 2px solid rgba(0, 0, 0, 0.24);
     display: flex;
     /*  poner footer abajo */
