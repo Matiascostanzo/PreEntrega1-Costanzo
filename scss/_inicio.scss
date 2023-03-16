@@ -32,6 +32,13 @@
   margin-top: 16px;
 }
 
+@font-face {
+  font-family: "Sweet Aloha";
+  src: url(../fuentes/sweet_aloha/Sweet\ Aloha.ttf);
+  font-weight: bold;
+  font-style: bold;
+}
+
 /* NAV BAR */
 @media screen and (min-width: 350px) and (max-width: 858px) {
   .header {
@@ -39,19 +46,18 @@
     top: 0;
     z-index: 2;
 
-    .checkbtn {
-      display: block;
-      float: right;
-      color: white;
-      font-size: 30px;
-      line-height: 50px;
-      margin-right: 40px;
-      cursor: pointer;
-    }
-
     nav {
-      background-color: black;
+      background-color: #004e63;
 
+      .checkbtn {
+        display: block;
+        float: right;
+        color: white;
+        font-size: 30px;
+        line-height: 50px;
+        margin-right: 40px;
+        cursor: pointer;
+      }
       ul {
         z-index: 2;
         position: fixed;
@@ -90,12 +96,31 @@
       left: 0;
     }
   }
+  .title {
+    background-color: #e3f2fd;
+    h1 {
+      font-family: "Sweet Aloha";
+      margin-top: 10px;
+    }
+  }
+  .buscador {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    input.src {
+      padding: 9px 10px 9px 32px;
+      outline: none;
+      font-size: 18px;
+      border-radius: 15px;
+      border: 3px solid #e3f2fd;
+    }
+  }
 
   /* Footer */
 
-  .footer {
-    font-size: 60%;
-    background: black;
+  footer {
+    font-size: 100%;
+    background: #004e63;
     height: 10%;
     border-top: 2px solid rgba(0, 0, 0, 0.24);
     display: flex;
@@ -121,6 +146,12 @@
       margin-top: -10%;
       padding-left: 25%;
       margin-right: 50px;
+    }
+  }
+  .title {
+    background-color: #e3f2fd;
+    h1 {
+      font-family: "Sweet Aloha";
     }
   }
 }
@@ -182,6 +213,58 @@
       .link:hover {
         background: grey;
       }
+    }
+  }
+
+  footer {
+    font-size: 100%;
+    background: #004e63;
+    height: 10%;
+    border-top: 2px solid rgba(0, 0, 0, 0.24);
+    display: flex;
+    /*  poner footer abajo */
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    .titleFooter {
+      font-family: "Sweet Aloha";
+    }
+    .fa-instagram {
+      font-size: x-large;
+      margin-right: 0.3%;
+      margin-top: 0.5%;
+    }
+
+    .fa-facebook {
+      font-size: x-large;
+      margin-top: -10%;
+      padding-left: 25%;
+      margin-right: 50px;
+    }
+  }
+  .title {
+    background-color: #e3f2fd;
+    h1 {
+      font-family: "Sweet Aloha";
+      margin-top: 10px;
+    }
+  }
+  .buscador {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    input.src {
+      padding: 9px 10px 9px 32px;
+      outline: none;
+      font-size: 18px;
+      border-radius: 15px;
+      border: 3px solid #e3f2fd;
     }
   }
 }
