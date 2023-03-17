@@ -115,6 +115,9 @@
   .parrafo p {
     background-color: #99b4bf;
   }
+  .funcion {
+    text-align: center;
+  }
   /* Footer */
   footer {
     font-size: 100%;
@@ -266,6 +269,9 @@
     background: linear-gradient(to right, #99b4bf, white);
     background: linear-gradient(to left, #99b4bf, white);
     font-size: 30px;
+    text-align: center;
+  }
+  .funcion {
     text-align: center;
   }
 }
