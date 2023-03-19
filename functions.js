@@ -1,4 +1,5 @@
 let continente = "";
+let pais = "";
 
 function elegirHospedaje() {
   console.log(
@@ -28,6 +29,68 @@ function elegirHospedaje() {
       alert("Elegir una opcion válida");
       hospedaje = prompt("Elegir continente").trim().toLowerCase();
     }
+    //Dependiendo la opcion que hayamos elegido nos informara por consola la opción de continente  elegida
+    switch (hospedaje) {
+      case "a":
+        continente = "América";
+        console.log("Elegíste " + continente);
+
+        break;
+
+      case "b":
+        continente = "Asia";
+        console.log("Elegíste " + continente);
+
+        break;
+
+      case "c":
+        continente = "África";
+        console.log("Elegíste " + continente);
+
+        break;
+
+      case "d":
+        continente = "Europa";
+        console.log("Elegíste " + continente);
+
+        break;
+
+      case "e":
+        continente = "Oceanía";
+        console.log("Elegíste " + continente);
+
+        break;
+    }
+
+    switch (hospedaje) {
+      //Nos consulta que país queremos visitar  de dicho continente elegido
+      case "a":
+        pais = prompt("¿Qué país de América quieres visitar?");
+        confirm("¿Elegiste " + pais + " ?");
+        break;
+
+      case "b":
+        pais = prompt("¿Qué país de Asia quieres visitar?");
+        confirm("¿Elegiste " + pais + " ?");
+        break;
+
+      case "c":
+        pais = prompt("¿Qué país de África quieres visitar?");
+        confirm("¿Elegiste " + pais + " ?");
+        break;
+
+      case "d":
+        pais = prompt("¿Qué país de Europa quieres visitar?");
+        confirm("¿Elegiste " + pais + " ?");
+        break;
+
+      case "e":
+        pais = prompt("¿Qué país de Oceanía quieres visitar?");
+        confirm("¿Elegiste " + pais + " ?");
+        break;
+    }
+  } else {
+    //Dependiendo la opcion que hayamos elegido nos informara por consola la opción de continente  elegida
     switch (hospedaje) {
       case "a":
         continente = "América";
@@ -58,35 +121,32 @@ function elegirHospedaje() {
 
         break;
     }
-  } else {
+
     switch (hospedaje) {
+      //Nos consulta que país queremos visitar  de dicho continente elegido
       case "a":
-        continente = "América";
-        console.log("Elegíste " + continente);
+        pais = prompt("¿Qué país de América quieres visitar?");
+        confirm("¿Elegiste " + pais + " ?");
         break;
 
       case "b":
-        continente = "Asia";
-        console.log("Elegíste " + continente);
-
+        pais = prompt("¿Qué país de Asia quieres visitar?");
+        confirm("¿Elegiste " + pais + " ?");
         break;
 
       case "c":
-        continente = "África";
-        console.log("Elegíste " + continente);
-
+        pais = prompt("¿Qué país de África quieres visitar?");
+        confirm("¿Elegiste " + pais + " ?");
         break;
 
       case "d":
-        continente = "Europa";
-        console.log("Elegíste " + continente);
-
+        pais = prompt("¿Qué país de Europa quieres visitar?");
+        confirm("¿Elegiste " + pais + " ?");
         break;
 
       case "e":
-        continente = "Oceanía";
-        console.log("Elegíste " + continente);
-
+        pais = prompt("¿Qué país de Oceanía quieres visitar?");
+        confirm("¿Elegiste " + pais + " ?");
         break;
     }
   }
