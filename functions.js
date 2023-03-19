@@ -1,5 +1,6 @@
 let continente = "";
 let pais = "";
+let result = true;
 
 function elegirHospedaje() {
   console.log(
@@ -66,27 +67,27 @@ function elegirHospedaje() {
       //Nos consulta que país queremos visitar  de dicho continente elegido
       case "a":
         pais = prompt("¿Qué país de América quieres visitar?");
-        confirm("¿Elegiste " + pais + " ?");
+        result = confirm("¿Elegiste " + pais + " ?");
         break;
 
       case "b":
         pais = prompt("¿Qué país de Asia quieres visitar?");
-        confirm("¿Elegiste " + pais + " ?");
+        result = confirm("¿Elegiste " + pais + " ?");
         break;
 
       case "c":
         pais = prompt("¿Qué país de África quieres visitar?");
-        confirm("¿Elegiste " + pais + " ?");
+        result = confirm("¿Elegiste " + pais + " ?");
         break;
 
       case "d":
         pais = prompt("¿Qué país de Europa quieres visitar?");
-        confirm("¿Elegiste " + pais + " ?");
+        result = confirm("¿Elegiste " + pais + " ?");
         break;
 
       case "e":
         pais = prompt("¿Qué país de Oceanía quieres visitar?");
-        confirm("¿Elegiste " + pais + " ?");
+        result = confirm("¿Elegiste " + pais + " ?");
         break;
     }
   } else {
@@ -126,27 +127,27 @@ function elegirHospedaje() {
       //Nos consulta que país queremos visitar  de dicho continente elegido
       case "a":
         pais = prompt("¿Qué país de América quieres visitar?");
-        confirm("¿Elegiste " + pais + " ?");
+        result = confirm("¿Elegiste " + pais + " ?");
         break;
 
       case "b":
         pais = prompt("¿Qué país de Asia quieres visitar?");
-        confirm("¿Elegiste " + pais + " ?");
+        result = confirm("¿Elegiste " + pais + " ?");
         break;
 
       case "c":
         pais = prompt("¿Qué país de África quieres visitar?");
-        confirm("¿Elegiste " + pais + " ?");
+        result = confirm("¿Elegiste " + pais + " ?");
         break;
 
       case "d":
         pais = prompt("¿Qué país de Europa quieres visitar?");
-        confirm("¿Elegiste " + pais + " ?");
+        result = confirm("¿Elegiste " + pais + " ?");
         break;
 
       case "e":
         pais = prompt("¿Qué país de Oceanía quieres visitar?");
-        confirm("¿Elegiste " + pais + " ?");
+        result = confirm("¿Elegiste " + pais + " ?");
         break;
     }
   }
