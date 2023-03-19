@@ -4,6 +4,7 @@ function elegirHospedaje() {
   console.log(
     "Opciones de continentes: \n A: América\n B: Asia \n C: África \n D: Europa \n E: Oceanía "
   );
+  // El usuario elige el continente
   let hospedaje = prompt("Elegir continente").trim().toLowerCase();
 
   if (
@@ -13,9 +14,11 @@ function elegirHospedaje() {
     hospedaje != "d" &&
     hospedaje != "e"
   ) {
+    // Si el hospedaje elegido es distinto a cualquier opcion válida, el usuario será solicitado para ingresarlo de nuevo
     alert("Elegir una opcion válida");
     hospedaje = prompt("Elegir continente").trim().toLowerCase();
     while (
+      //Hasta que elija una opcion válida seguirá pidiendo que el usuario elija una opción
       hospedaje != "a" &&
       hospedaje != "b" &&
       hospedaje != "c" &&
