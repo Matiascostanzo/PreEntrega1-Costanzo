@@ -123,7 +123,13 @@
 
   .parrafo {
     p {
-      background-color: #99b4bf;
+      background: rgb(153, 180, 191);
+      background: linear-gradient(
+        90deg,
+        rgba(153, 180, 191, 1) 0%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(153, 180, 191, 1) 100%
+      );
     }
   }
   .funcion {
@@ -268,8 +274,13 @@
     width: 90%;
 
     p {
-      background: linear-gradient(to right, #99b4bf, white);
-      background: linear-gradient(to left, #99b4bf, white);
+      background: rgb(153, 180, 191);
+      background: linear-gradient(
+        90deg,
+        rgba(153, 180, 191, 1) 0%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(153, 180, 191, 1) 100%
+      );
       font-size: 30px;
       text-align: center;
     }

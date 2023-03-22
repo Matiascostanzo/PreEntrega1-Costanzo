@@ -113,7 +113,8 @@
     background: url(../images/buscador.png) no-repeat left;
   }
   .parrafo p {
-    background-color: #99b4bf;
+    background: rgb(153, 180, 191);
+    background: linear-gradient(90deg, rgb(153, 180, 191) 0%, rgb(255, 255, 255) 50%, rgb(153, 180, 191) 100%);
   }
   .funcion {
     text-align: center;
@@ -244,8 +245,8 @@
     width: 90%;
   }
   .parrafo p {
-    background: linear-gradient(to right, #99b4bf, white);
-    background: linear-gradient(to left, #99b4bf, white);
+    background: rgb(153, 180, 191);
+    background: linear-gradient(90deg, rgb(153, 180, 191) 0%, rgb(255, 255, 255) 50%, rgb(153, 180, 191) 100%);
     font-size: 30px;
     text-align: center;
   }
