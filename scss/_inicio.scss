@@ -4,10 +4,11 @@
   box-sizing: border-box;
 }
 
+// Pagina en la que estoy se visualiza en negro
 #active1 {
   color: black;
 }
-
+// Icono de whatsapp
 .float {
   position: fixed;
   width: 60px;
@@ -32,6 +33,7 @@
   margin-top: 16px;
 }
 
+// Utilizo fuente externa de texto
 @font-face {
   font-family: "Sweet Aloha";
   src: url(../fuentes/sweet_aloha/Sweet\ Aloha.ttf);
@@ -99,6 +101,7 @@
       left: 0;
     }
   }
+  // Page body
   .title {
     background-color: #e3f2fd;
     h1 {
@@ -123,7 +126,11 @@
 
   .parrafo {
     p {
+      font-size: 35px;
+      text-align: center;
       background-color: #99b4bf;
+      background: linear-gradient(to right, #99b4bf, white);
+      background: linear-gradient(to left, #99b4bf, white);
     }
   }
   .funcion {
@@ -158,6 +165,7 @@
 }
 
 @media screen and (min-width: 859px) {
+  // Nav Bar
   .header {
     position: sticky;
     top: 0;
@@ -216,7 +224,7 @@
       }
     }
   }
-
+  // Footer
   footer {
     font-size: 100%;
     background-color: #004e63;
@@ -248,6 +256,7 @@
       margin-right: 50px;
     }
   }
+  // Page Body
   .title {
     background-color: #e3f2fd;
     h1 {

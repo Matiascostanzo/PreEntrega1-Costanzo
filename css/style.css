@@ -113,7 +113,11 @@
     background: url(../images/buscador.png) no-repeat left;
   }
   .parrafo p {
+    font-size: 35px;
+    text-align: center;
     background-color: #99b4bf;
+    background: linear-gradient(to right, #99b4bf, white);
+    background: linear-gradient(to left, #99b4bf, white);
   }
   .funcion {
     text-align: center;
