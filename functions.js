@@ -7,9 +7,10 @@ function primerLetraMayuscula(str) {
 }
 
 function elegirHospedaje() {
-  console.log(
-    "Opciones de continentes: \n A: América\n B: Asia \n C: África \n D: Europa \n E: Oceanía "
-  );
+  continentes.forEach(function (continentes) {
+    console.log(continentes.nombre);
+  });
+
   // El usuario elige el continente
   let hospedaje = prompt("Elegir continente").trim().toLowerCase();
 
@@ -70,7 +71,14 @@ function elegirHospedaje() {
     switch (hospedaje) {
       //Nos consulta que país queremos visitar  de dicho continente elegido
       case "a":
-        console.log(america);
+        continentes.forEach(function (continentes) {
+          if (cont.nombre === "A: América") {
+            continentes.paises.forEach(function (paises) {
+              console.log(paises);
+            });
+          }
+        });
+
         pais = prompt("¿Qué país de América quieres visitar?");
         pais = primerLetraMayuscula(pais);
         while (!america.includes(pais)) {
@@ -165,7 +173,16 @@ function elegirHospedaje() {
     switch (hospedaje) {
       //Nos consulta que país queremos visitar  de dicho continente elegido
       case "a":
-        console.log(america);
+        continentes.forEach(function (continentes) {
+          console.log("Elegí que país queres visitar");
+          ("\n");
+          if (continentes.nombre === "A: América") {
+            continentes.paises.forEach(function (paises) {
+              console.log(paises);
+            });
+          }
+        });
+
         pais = prompt("¿Qué país de América quieres visitar?");
         pais = primerLetraMayuscula(pais);
         while (!america.includes(pais)) {
