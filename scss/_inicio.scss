@@ -126,11 +126,7 @@
 
   .parrafo {
     p {
-      font-size: 35px;
-      text-align: center;
       background-color: #99b4bf;
-      background: linear-gradient(to right, #99b4bf, white);
-      background: linear-gradient(to left, #99b4bf, white);
     }
   }
   .funcion {
@@ -243,18 +239,6 @@
     .titleFooter {
       font-family: "Sweet Aloha";
     }
-    .fa-instagram {
-      font-size: x-large;
-      margin-right: 0.3%;
-      margin-top: 0.5%;
-    }
-
-    .fa-facebook {
-      font-size: x-large;
-      margin-top: -10%;
-      padding-left: 11.5%;
-      margin-right: 50px;
-    }
   }
   // Page Body
   .title {
@@ -289,8 +273,13 @@
     width: 90%;
 
     p {
-      background: linear-gradient(to right, #99b4bf, white);
-      background: linear-gradient(to left, #99b4bf, white);
+      background: rgb(153, 180, 191);
+      background: linear-gradient(
+        90deg,
+        rgba(153, 180, 191, 1) 0%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(153, 180, 191, 1) 100%
+      );
       font-size: 30px;
       text-align: center;
     }

@@ -113,11 +113,7 @@
     background: url(../images/buscador.png) no-repeat left;
   }
   .parrafo p {
-    font-size: 35px;
-    text-align: center;
     background-color: #99b4bf;
-    background: linear-gradient(to right, #99b4bf, white);
-    background: linear-gradient(to left, #99b4bf, white);
   }
   .funcion {
     text-align: center;
@@ -217,17 +213,6 @@
   footer .titleFooter {
     font-family: "Sweet Aloha";
   }
-  footer .fa-instagram {
-    font-size: x-large;
-    margin-right: 0.3%;
-    margin-top: 0.5%;
-  }
-  footer .fa-facebook {
-    font-size: x-large;
-    margin-top: -10%;
-    padding-left: 11.5%;
-    margin-right: 50px;
-  }
   .title {
     background-color: #e3f2fd;
   }
@@ -259,8 +244,8 @@
     width: 90%;
   }
   .parrafo p {
-    background: linear-gradient(to right, #99b4bf, white);
-    background: linear-gradient(to left, #99b4bf, white);
+    background: rgb(153, 180, 191);
+    background: linear-gradient(90deg, rgb(153, 180, 191) 0%, rgb(255, 255, 255) 50%, rgb(153, 180, 191) 100%);
     font-size: 30px;
     text-align: center;
   }

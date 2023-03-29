@@ -2,6 +2,10 @@ let continente = "";
 let pais = "";
 let result = true;
 
+function primerLetraMayuscula(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+
 function elegirHospedaje() {
   console.log(
     "Opciones de continentes: \n A: América\n B: Asia \n C: África \n D: Europa \n E: Oceanía "
@@ -66,28 +70,58 @@ function elegirHospedaje() {
     switch (hospedaje) {
       //Nos consulta que país queremos visitar  de dicho continente elegido
       case "a":
+        console.log(america);
         pais = prompt("¿Qué país de América quieres visitar?");
-        result = confirm("¿Elegiste " + pais + " ?");
+        pais = primerLetraMayuscula(pais);
+        while (!america.includes(pais)) {
+          alert("Debes ingresar un país válido de America.");
+          pais = prompt("¿Qué país de América quieres visitar?");
+        }
+        result = confirm("Elegiste " + pais + " ");
         break;
 
       case "b":
+        console.log(asia);
         pais = prompt("¿Qué país de Asia quieres visitar?");
-        result = confirm("¿Elegiste " + pais + " ?");
+        pais = primerLetraMayuscula(pais);
+        while (!asia.includes(pais)) {
+          alert("Debes ingresar un país válido de Asia.");
+          pais = prompt("¿Qué país de Asia quieres visitar?");
+        }
+        result = confirm("Elegiste " + pais + " ");
         break;
 
       case "c":
+        console.log(africa);
         pais = prompt("¿Qué país de África quieres visitar?");
-        result = confirm("¿Elegiste " + pais + " ?");
+        pais = primerLetraMayuscula(pais);
+        while (!africa.includes(pais)) {
+          alert("Debes ingresar un país válido de África.");
+          pais = prompt("¿Qué país de Africa quieres visitar?");
+        }
+        result = confirm("Elegiste " + pais + " ");
         break;
 
       case "d":
+        console.log(europa);
         pais = prompt("¿Qué país de Europa quieres visitar?");
-        result = confirm("¿Elegiste " + pais + " ?");
+        pais = primerLetraMayuscula(pais);
+        while (!europa.includes(pais)) {
+          alert("Debes ingresar un país válido de Europa.");
+          pais = prompt("¿Qué país de Europa quieres visitar?");
+        }
+        result = confirm("Elegiste " + pais + " ");
         break;
 
       case "e":
+        console.log(oceania);
         pais = prompt("¿Qué país de Oceanía quieres visitar?");
-        result = confirm("¿Elegiste " + pais + " ?");
+        pais = primerLetraMayuscula(pais);
+        while (!oceania.includes(pais)) {
+          alert("Debes ingresar un país válido de Oceanía.");
+          pais = prompt("¿Qué país de Oceanía  quieres visitar?");
+        }
+        result = confirm("Elegiste " + pais + " ");
         break;
     }
   } else {
@@ -126,28 +160,58 @@ function elegirHospedaje() {
     switch (hospedaje) {
       //Nos consulta que país queremos visitar  de dicho continente elegido
       case "a":
+        console.log(america);
         pais = prompt("¿Qué país de América quieres visitar?");
-        result = confirm("¿Elegiste " + pais + " ?");
+        pais = primerLetraMayuscula(pais);
+        while (!america.includes(pais)) {
+          alert("Debes ingresar un país válido de America.");
+          pais = prompt("¿Qué país de América quieres visitar?");
+        }
+        result = confirm("Elegiste " + pais + " ");
         break;
 
       case "b":
+        console.log(asia);
         pais = prompt("¿Qué país de Asia quieres visitar?");
-        result = confirm("¿Elegiste " + pais + " ?");
+        pais = primerLetraMayuscula(pais);
+        while (!asia.includes(pais)) {
+          alert("Debes ingresar un país válido de Asia.");
+          pais = prompt("¿Qué país de Asia quieres visitar?");
+        }
+        result = confirm("Elegiste " + pais + " ");
         break;
 
       case "c":
+        console.log(africa);
         pais = prompt("¿Qué país de África quieres visitar?");
-        result = confirm("¿Elegiste " + pais + " ?");
+        pais = primerLetraMayuscula(pais);
+        while (!africa.includes(pais)) {
+          alert("Debes ingresar un país válido de África.");
+          pais = prompt("¿Qué país de Africa quieres visitar?");
+        }
+        result = confirm("Elegiste " + pais + " ");
         break;
 
       case "d":
+        console.log(europa);
         pais = prompt("¿Qué país de Europa quieres visitar?");
-        result = confirm("¿Elegiste " + pais + " ?");
+        pais = primerLetraMayuscula(pais);
+        while (!europa.includes(pais)) {
+          alert("Debes ingresar un país válido de Europa.");
+          pais = prompt("¿Qué país de Europa quieres visitar?");
+        }
+        result = confirm("Elegiste " + pais + " ");
         break;
 
       case "e":
+        console.log(oceania);
         pais = prompt("¿Qué país de Oceanía quieres visitar?");
-        result = confirm("¿Elegiste " + pais + " ?");
+        pais = primerLetraMayuscula(pais);
+        while (!oceania.includes(pais)) {
+          alert("Debes ingresar un país válido de Oceanía.");
+          pais = prompt("¿Qué país de Oceanía  quieres visitar?");
+        }
+        result = confirm("Elegiste " + pais + " ");
         break;
     }
   }
