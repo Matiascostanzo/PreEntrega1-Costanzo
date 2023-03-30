@@ -1,24 +1,24 @@
 let continentes = [
   {
-    nombre: "A: América",
-    paises: ["Estados Unidos", "México", "Brasil", "Argentina"],
+    nombre: "America",
+    paises: ["Estados unidos", "Mexico", "Brasil", "Argentina"],
   },
   {
-    nombre: "B: Asia",
-    paises: ["China", "Japón", "India", "Corea del Sur"],
+    nombre: "Asia",
+    paises: ["China", "Japon", "India", "Corea del sur"],
   },
   {
-    nombre: "C: África",
-    paises: ["Nigeria", "Egipto", "Sudáfrica", "Marruecos"],
+    nombre: "Africa",
+    paises: ["Nigeria", "Egipto", "Sudafrica", "Marruecos"],
   },
   {
-    nombre: "D: Europa",
+    nombre: "Europa",
     paises: ["España", "Francia", "Italia", "Alemania"],
   },
 
   {
-    nombre: "E: Oceanía",
-    paises: ["Australia", "Nueva Zelanda", "Fiji", "Papúa Nueva Guinea"],
+    nombre: "Oceania",
+    paises: ["Australia", "Nueva zelanda", "Fiji", "Papúa nueva guinea"],
   },
 ];
 

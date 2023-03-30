@@ -1,6 +1,7 @@
 let continente = "";
 let pais = "";
 let result = true;
+let paisEncontrado = false;
 
 function primerLetraMayuscula(str) {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
@@ -12,56 +13,67 @@ function elegirHospedaje() {
   });
 
   // El usuario elige el continente
-  let hospedaje = prompt("Elegir continente").trim().toLowerCase();
+  let hospedaje = prompt("Elegir continente");
+  primerLetraMayuscula(hospedaje);
 
   if (
-    hospedaje != "a" &&
-    hospedaje != "b" &&
-    hospedaje != "c" &&
-    hospedaje != "d" &&
-    hospedaje != "e"
+    hospedaje != "America" &&
+    hospedaje != "Asia" &&
+    hospedaje != "Africa" &&
+    hospedaje != "Europa" &&
+    hospedaje != "Oceania"
   ) {
     // Si el hospedaje elegido es distinto a cualquier opcion válida, el usuario será solicitado para ingresarlo de nuevo
     alert("Elegir una opcion válida");
-    hospedaje = prompt("Elegir continente").trim().toLowerCase();
+    hospedaje = prompt("Elegir continente");
+    primerLetraMayuscula(hospedaje);
     while (
       //Hasta que elija una opcion válida seguirá pidiendo que el usuario elija una opción
-      hospedaje != "a" &&
-      hospedaje != "b" &&
-      hospedaje != "c" &&
-      hospedaje != "d" &&
-      hospedaje != "e"
+      hospedaje != "America" &&
+      hospedaje != "Asia" &&
+      hospedaje != "Africa" &&
+      hospedaje != "Europa" &&
+      hospedaje != "Oceania"
     ) {
       alert("Elegir una opcion válida");
-      hospedaje = prompt("Elegir continente").trim().toLowerCase();
+      hospedaje = prompt("Elegir continente");
+      primerLetraMayuscula(hospedaje);
     }
-    //Dependiendo la opcion que hayamos elegido nos informara por consola la opción de continente  elegida
+  }
+
+  if (
+    hospedaje == "America" ||
+    hospedaje == "Asia" ||
+    hospedaje == "Africa" ||
+    hospedaje == "Europa" ||
+    hospedaje == "Oceania"
+  ) {
     switch (hospedaje) {
-      case "a":
+      case "America":
         continente = "América";
         console.log("Elegíste " + continente);
 
         break;
 
-      case "b":
+      case "Asia":
         continente = "Asia";
         console.log("Elegíste " + continente);
 
         break;
 
-      case "c":
+      case "Africa":
         continente = "África";
         console.log("Elegíste " + continente);
 
         break;
 
-      case "d":
+      case "Europa":
         continente = "Europa";
         console.log("Elegíste " + continente);
 
         break;
 
-      case "e":
+      case "Oceania":
         continente = "Oceanía";
         console.log("Elegíste " + continente);
 
@@ -70,176 +82,200 @@ function elegirHospedaje() {
 
     switch (hospedaje) {
       //Nos consulta que país queremos visitar  de dicho continente elegido
-      case "a":
+      case "America":
+        console.log("Lista de países de America disponibles \n");
         continentes.forEach(function (continentes) {
-          if (cont.nombre === "A: América") {
+          if (continentes.nombre === "America") {
             continentes.paises.forEach(function (paises) {
               console.log(paises);
             });
           }
         });
 
-        pais = prompt("¿Qué país de América quieres visitar?");
-        pais = primerLetraMayuscula(pais);
-        while (!america.includes(pais)) {
-          alert("Debes ingresar un país válido de America.");
+        do {
           pais = prompt("¿Qué país de América quieres visitar?");
           pais = primerLetraMayuscula(pais);
+
+          // Verifica si el país ingresado por el usuario está en la lista de países del continente elegido
+          continentes.forEach(function (continente) {
+            if (continente.nombre === "America") {
+              continente.paises.forEach(function (paisContinente) {
+                if (paisContinente === pais) {
+                  paisEncontrado = true;
+                }
+              });
+            }
+          });
+
+          // Si el país ingresado no está en la lista, pide al usuario que ingrese otro país
+          if (!paisEncontrado) {
+            console.log(
+              `Lo siento, ${pais} no es un país válido en ${continente}.`
+            );
+          }
+        } while (!paisEncontrado);
+        {
+          console.log(
+            `¡Excelente elección! Quieres visitar ${pais} en ${continente}.`
+          );
+          break;
         }
-        result = confirm("Elegiste " + pais + " ");
-        break;
 
-      case "b":
-        console.log(asia);
-        pais = prompt("¿Qué país de Asia quieres visitar?");
-        pais = primerLetraMayuscula(pais);
-        while (!asia.includes(pais)) {
-          alert("Debes ingresar un país válido de Asia.");
-          pais = prompt("¿Qué país de Asia quieres visitar?");
-          pais = primerLetraMayuscula(pais);
-        }
-        result = confirm("Elegiste " + pais + " ");
-        break;
-
-      case "c":
-        console.log(africa);
-        pais = prompt("¿Qué país de África quieres visitar?");
-        pais = primerLetraMayuscula(pais);
-        while (!africa.includes(pais)) {
-          alert("Debes ingresar un país válido de África.");
-          pais = prompt("¿Qué país de Africa quieres visitar?");
-          pais = primerLetraMayuscula(pais);
-        }
-        result = confirm("Elegiste " + pais + " ");
-        break;
-
-      case "d":
-        console.log(europa);
-        pais = prompt("¿Qué país de Europa quieres visitar?");
-        pais = primerLetraMayuscula(pais);
-        while (!europa.includes(pais)) {
-          alert("Debes ingresar un país válido de Europa.");
-          pais = prompt("¿Qué país de Europa quieres visitar?");
-          pais = primerLetraMayuscula(pais);
-        }
-        result = confirm("Elegiste " + pais + " ");
-        break;
-
-      case "e":
-        console.log(oceania);
-        pais = prompt("¿Qué país de Oceanía quieres visitar?");
-        pais = primerLetraMayuscula(pais);
-        while (!oceania.includes(pais)) {
-          alert("Debes ingresar un país válido de Oceanía.");
-          pais = prompt("¿Qué país de Oceanía  quieres visitar?");
-          pais = primerLetraMayuscula(pais);
-        }
-        result = confirm("Elegiste " + pais + " ");
-        break;
-    }
-  } else {
-    //Dependiendo la opcion que hayamos elegido nos informara por consola la opción de continente  elegida
-    switch (hospedaje) {
-      case "a":
-        continente = "América";
-        console.log("Elegíste " + continente);
-        break;
-
-      case "b":
-        continente = "Asia";
-        console.log("Elegíste " + continente);
-
-        break;
-
-      case "c":
-        continente = "África";
-        console.log("Elegíste " + continente);
-
-        break;
-
-      case "d":
-        continente = "Europa";
-        console.log("Elegíste " + continente);
-
-        break;
-
-      case "e":
-        continente = "Oceanía";
-        console.log("Elegíste " + continente);
-
-        break;
-    }
-
-    switch (hospedaje) {
-      //Nos consulta que país queremos visitar  de dicho continente elegido
-      case "a":
+      case "Asia":
+        console.log("Lista de países de Asia disponibles \n");
         continentes.forEach(function (continentes) {
-          console.log("Elegí que país queres visitar");
-          ("\n");
-          if (continentes.nombre === "A: América") {
+          if (continentes.nombre === "Asia") {
             continentes.paises.forEach(function (paises) {
               console.log(paises);
             });
           }
         });
 
-        pais = prompt("¿Qué país de América quieres visitar?");
-        pais = primerLetraMayuscula(pais);
-        while (!america.includes(pais)) {
-          alert("Debes ingresar un país válido de America.");
-          pais = prompt("¿Qué país de América quieres visitar?");
-          pais = primerLetraMayuscula(pais);
-        }
-        result = confirm("Elegiste " + pais + " ");
-        break;
-
-      case "b":
-        console.log(asia);
-        pais = prompt("¿Qué país de Asia quieres visitar?");
-        pais = primerLetraMayuscula(pais);
-        while (!asia.includes(pais)) {
-          alert("Debes ingresar un país válido de Asia.");
+        do {
           pais = prompt("¿Qué país de Asia quieres visitar?");
           pais = primerLetraMayuscula(pais);
-        }
-        result = confirm("Elegiste " + pais + " ");
-        break;
 
-      case "c":
-        console.log(africa);
-        pais = prompt("¿Qué país de África quieres visitar?");
-        pais = primerLetraMayuscula(pais);
-        while (!africa.includes(pais)) {
-          alert("Debes ingresar un país válido de África.");
+          // Verifica si el país ingresado por el usuario está en la lista de países del continente elegido
+          continentes.forEach(function (continente) {
+            if (continente.nombre === "Asia") {
+              continente.paises.forEach(function (paisContinente) {
+                if (paisContinente === pais) {
+                  paisEncontrado = true;
+                }
+              });
+            }
+          });
+
+          // Si el país ingresado no está en la lista, pide al usuario que ingrese otro país
+          if (!paisEncontrado) {
+            console.log(
+              `Lo siento, ${pais} no es un país válido en ${continente}.`
+            );
+          }
+        } while (!paisEncontrado);
+        {
+          console.log(
+            `¡Excelente elección! Quieres visitar ${pais} en ${continente}.`
+          );
+          break;
+        }
+
+      case "Africa":
+        console.log("Lista de países de Africa disponibles \n");
+        continentes.forEach(function (continentes) {
+          if (continentes.nombre === "Africa") {
+            continentes.paises.forEach(function (paises) {
+              console.log(paises);
+            });
+          }
+        });
+
+        do {
           pais = prompt("¿Qué país de Africa quieres visitar?");
           pais = primerLetraMayuscula(pais);
-        }
-        result = confirm("Elegiste " + pais + " ");
-        break;
 
-      case "d":
-        console.log(europa);
-        pais = prompt("¿Qué país de Europa quieres visitar?");
-        pais = primerLetraMayuscula(pais);
-        while (!europa.includes(pais)) {
-          alert("Debes ingresar un país válido de Europa.");
+          // Verifica si el país ingresado por el usuario está en la lista de países del continente elegido
+          continentes.forEach(function (continente) {
+            if (continente.nombre === "Africa") {
+              continente.paises.forEach(function (paisContinente) {
+                if (paisContinente === pais) {
+                  paisEncontrado = true;
+                }
+              });
+            }
+          });
+
+          // Si el país ingresado no está en la lista, pide al usuario que ingrese otro país
+          if (!paisEncontrado) {
+            console.log(
+              `Lo siento, ${pais} no es un país válido en ${continente}.`
+            );
+          }
+        } while (!paisEncontrado);
+        {
+          console.log(
+            `¡Excelente elección! Quieres visitar ${pais} en ${continente}.`
+          );
+          break;
+        }
+
+      case "Europa":
+        console.log("Lista de países de Europa disponibles \n");
+        continentes.forEach(function (continentes) {
+          if (continentes.nombre === "Europa") {
+            continentes.paises.forEach(function (paises) {
+              console.log(paises);
+            });
+          }
+        });
+
+        do {
           pais = prompt("¿Qué país de Europa quieres visitar?");
           pais = primerLetraMayuscula(pais);
-        }
-        result = confirm("Elegiste " + pais + " ");
-        break;
 
-      case "e":
-        console.log(oceania);
-        pais = prompt("¿Qué país de Oceanía quieres visitar?");
-        pais = primerLetraMayuscula(pais);
-        while (!oceania.includes(pais)) {
-          alert("Debes ingresar un país válido de Oceanía.");
-          pais = prompt("¿Qué país de Oceanía  quieres visitar?");
-          pais = primerLetraMayuscula(pais);
+          // Verifica si el país ingresado por el usuario está en la lista de países del continente elegido
+          continentes.forEach(function (continente) {
+            if (continente.nombre === "Europa") {
+              continente.paises.forEach(function (paisContinente) {
+                if (paisContinente === pais) {
+                  paisEncontrado = true;
+                }
+              });
+            }
+          });
+
+          // Si el país ingresado no está en la lista, pide al usuario que ingrese otro país
+          if (!paisEncontrado) {
+            console.log(
+              `Lo siento, ${pais} no es un país válido en ${continente}.`
+            );
+          }
+        } while (!paisEncontrado);
+        {
+          console.log(
+            `¡Excelente elección! Quieres visitar ${pais} en ${continente}.`
+          );
+          break;
         }
-        result = confirm("Elegiste " + pais + " ");
-        break;
+
+      case "Oceania":
+        console.log("Lista de países de Oceania disponibles \n");
+        continentes.forEach(function (continentes) {
+          if (continentes.nombre === "Oceania") {
+            continentes.paises.forEach(function (paises) {
+              console.log(paises);
+            });
+          }
+        });
+
+        do {
+          pais = prompt("¿Qué país de Oceania quieres visitar?");
+          pais = primerLetraMayuscula(pais);
+
+          // Verifica si el país ingresado por el usuario está en la lista de países del continente elegido
+          continentes.forEach(function (continente) {
+            if (continente.nombre === "Oceania") {
+              continente.paises.forEach(function (paisContinente) {
+                if (paisContinente === pais) {
+                  paisEncontrado = true;
+                }
+              });
+            }
+          });
+
+          // Si el país ingresado no está en la lista, pide al usuario que ingrese otro país
+          if (!paisEncontrado) {
+            console.log(
+              `Lo siento, ${pais} no es un país válido en ${continente}.`
+            );
+          }
+        } while (!paisEncontrado);
+        {
+          console.log(
+            `¡Excelente elección! Quieres visitar ${pais} en ${continente}.`
+          );
+          break;
+        }
     }
   }
 }
