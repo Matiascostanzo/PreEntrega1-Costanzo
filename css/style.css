@@ -39,8 +39,7 @@
   font-weight: bold;
   font-style: bold;
 }
-/* NAV BAR */
-@media screen and (min-width: 350px) and (max-width: 858px) {
+@media (max-width: 549px) {
   .header {
     position: sticky;
     top: 0;
@@ -121,22 +120,200 @@
   .funcion {
     text-align: center;
   }
+  .cardContainer {
+    flex-direction: column;
+  }
+  .cardContainer .card {
+    display: flex;
+    margin: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 1px 1px 10px rgba(3, 82, 85, 0.925);
+    cursor: default;
+    transition: all 400ms ease;
+    width: calc(100% - 40px); /* cambiado desde width: 100% */
+  }
+  .cardContainer .card:hover {
+    box-shadow: 1px 1px 10px rgba(1, 33, 34, 0.925);
+    transform: translateY(-3%);
+  }
+  .cardContainer .card img {
+    width: 100%;
+    height: 210px;
+  }
+  .cardContainer .card .contenido {
+    padding: 15px;
+    text-align: center;
+  }
+  .cardContainer .card .contenido p {
+    line-height: 1.5;
+    color: #6a6a6a;
+  }
+  .cardContainer .card .contenido h3 {
+    margin-bottom: 15px;
+  }
+  .cardContainer .card .contenido a {
+    text-decoration: none;
+    display: inline-block;
+    color: #2fb4cc;
+    border: 1px solid #2fb4cc;
+    border-radius: 4px;
+    transition: all 400ms ease;
+    padding: 3px;
+  }
+  .cardContainer .card .contenido a:hover {
+    background: #2fb4cc;
+    color: #fff;
+  }
+  footer {
+    background-color: #004e63;
+  }
+  .title {
+    background-color: #e3f2fd;
+  }
+  .title h1 {
+    font-family: "Sweet Aloha";
+  }
+}
+/* NAV BAR */
+@media screen and (min-width: 550px) and (max-width: 858px) {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  .header .checkbtn {
+    display: block;
+    float: right;
+    color: white;
+    font-size: 30px;
+    line-height: 50px;
+    margin-right: 40px;
+    cursor: pointer;
+  }
+  .header nav {
+    background-color: #004e63;
+  }
+  .header nav .indice__logo {
+    height: 80px;
+  }
+  .header nav ul {
+    z-index: 2;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #004e63;
+    top: 45px;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+  }
+  .header nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  .header nav ul li a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+  }
+  .header #check {
+    display: none;
+  }
+  .header .link:hover {
+    background: none;
+    color: grey;
+  }
+  .header #check:checked ~ ul {
+    left: 0;
+  }
+  .title {
+    background-color: #e3f2fd;
+  }
+  .title h1 {
+    font-family: "Sweet Aloha";
+    margin-top: 10px;
+  }
+  .buscador {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .buscador input.src {
+    text-align: center;
+    padding: 9px 10px 9px 32px;
+    outline: none;
+    font-size: 18px;
+    border-radius: 15px;
+    border: 3px solid #e3f2fd;
+    background: url(../images/buscador.png) no-repeat left;
+  }
+  .parrafo p {
+    background: rgb(153, 180, 191);
+    background: linear-gradient(90deg, rgb(153, 180, 191) 0%, rgb(255, 255, 255) 50%, rgb(153, 180, 191) 100%);
+    font-size: 20px;
+    text-align: center;
+  }
+  .funcion {
+    text-align: center;
+  }
+  .cardContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .cardContainer .card {
+    width: calc(50% - 40px);
+    margin: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 1px 1px 10px rgba(3, 82, 85, 0.925);
+    cursor: default;
+    transition: all 400ms ease;
+  }
+  .cardContainer .card:nth-child(odd) {
+    margin-right: 20px;
+  }
+  .cardContainer .card:nth-child(even) {
+    margin-left: 20px;
+  }
+  .cardContainer .card:hover {
+    box-shadow: 1px 1px 10px rgba(1, 33, 34, 0.925);
+    transform: translateY(-3%);
+  }
+  .cardContainer .card img {
+    width: 100%;
+    height: 210px;
+  }
+  .cardContainer .card .contenido {
+    padding: 15px;
+    text-align: center;
+  }
+  .cardContainer .card .contenido p {
+    line-height: 1.5;
+    color: #6a6a6a;
+  }
+  .cardContainer .card .contenido h3 {
+    margin-bottom: 15px;
+  }
+  .cardContainer .card .contenido a {
+    text-decoration: none;
+    display: inline-block;
+    color: #2fb4cc;
+    border: 1px solid #2fb4cc;
+    border-radius: 4px;
+    transition: all 400ms ease;
+    padding: 3px;
+  }
+  .cardContainer .card .contenido a:hover {
+    background: #2fb4cc;
+    color: #fff;
+  }
   /* Footer */
   footer {
-    font-size: 100%;
     background-color: #004e63;
-    border-top: 2px solid rgba(0, 0, 0, 0.24);
-    display: flex;
-    /*  poner footer abajo */
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
   }
   .title {
     background-color: #e3f2fd;
@@ -198,40 +375,24 @@
     background: grey;
   }
   footer {
-    font-size: 100%;
     background-color: #004e63;
-    border-top: 2px solid rgba(0, 0, 0, 0.24);
-    display: flex;
-    /*  poner footer abajo */
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-  }
-  footer .titleFooter {
-    font-family: "Sweet Aloha";
   }
   body {
     height: 150vh;
     width: 100%;
   }
-  .title {
+  body .title {
     background-color: #e3f2fd;
   }
-  .title h1 {
+  body .title h1 {
     font-family: "Sweet Aloha";
     margin-top: 10px;
   }
-  .buscador {
+  body .buscador {
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  .buscador input.src {
+  body .buscador input.src {
     text-align: center;
     padding: 9px 10px 9px 32px;
     outline: none;
@@ -241,30 +402,30 @@
     background: url(../images/buscador.png) no-repeat left;
     transition: all 0.6s;
   }
-  .buscador input.src:hover {
+  body .buscador input.src:hover {
     width: 300px;
     border-color: #e3f2fd;
     box-shadow: 0 0 5px #004e63;
     font-size: 20px;
   }
-  .parrafo {
+  body .parrafo {
     width: 90%;
   }
-  .parrafo p {
+  body .parrafo p {
     background: rgb(153, 180, 191);
     background: linear-gradient(90deg, rgb(153, 180, 191) 0%, rgb(255, 255, 255) 50%, rgb(153, 180, 191) 100%);
     font-size: 30px;
     text-align: center;
   }
-  .funcion {
+  body .funcion {
     text-align: center;
   }
-  .cardContainer {
+  body .cardContainer {
     width: 100%;
     display: flex;
-    max-width: 950px;
+    max-width: 1200px;
   }
-  .cardContainer .card {
+  body .cardContainer .card {
     width: 100%;
     margin: 20px;
     border-radius: 6px;
@@ -274,26 +435,26 @@
     cursor: default;
     transition: all 400ms ease;
   }
-  .cardContainer .card:hover {
+  body .cardContainer .card:hover {
     box-shadow: 1px 1px 10px rgba(1, 33, 34, 0.925);
     transform: translateY(-3%);
   }
-  .cardContainer .card img {
+  body .cardContainer .card img {
     width: 100%;
     height: 210px;
   }
-  .cardContainer .card .contenido {
+  body .cardContainer .card .contenido {
     padding: 15px;
     text-align: center;
   }
-  .cardContainer .card .contenido p {
+  body .cardContainer .card .contenido p {
     line-height: 1.5;
     color: #6a6a6a;
   }
-  .cardContainer .card .contenido h3 {
+  body .cardContainer .card .contenido h3 {
     margin-bottom: 15px;
   }
-  .cardContainer .card .contenido a {
+  body .cardContainer .card .contenido a {
     text-decoration: none;
     display: inline-block;
     color: #2fb4cc;
@@ -302,7 +463,7 @@
     transition: all 400ms ease;
     padding: 3px;
   }
-  .cardContainer .card .contenido a:hover {
+  body .cardContainer .card .contenido a:hover {
     background: #2fb4cc;
     color: #fff;
   }
