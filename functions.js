@@ -7,7 +7,7 @@ function primerLetraMayuscula(str) {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
-function elegirHospedaje() {
+function elegirExcursion() {
   continentes.forEach(function (continentes) {
     console.log(continentes.nombre);
   });

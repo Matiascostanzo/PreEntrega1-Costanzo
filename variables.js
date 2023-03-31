@@ -13,7 +13,7 @@ let continentes = [
   },
   {
     nombre: "Europa",
-    paises: ["España", "Francia", "Italia", "Alemania"],
+    paises: ["España", "Noruega", "Italia", "Islandia"],
   },
 
   {
