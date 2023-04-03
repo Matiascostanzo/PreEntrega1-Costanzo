@@ -146,6 +146,8 @@
     .card {
       display: flex;
       margin: 20px;
+      margin-left: 50px;
+      margin-bottom: 50px;
       border-radius: 6px;
       overflow: hidden;
       background: #fff;
@@ -153,7 +155,7 @@
       cursor: default;
       transition: all 400ms ease;
 
-      width: calc(100% - 40px); /* cambiado desde width: 100% */
+      width: calc(90% - 40px); /* cambiado desde width: 100% */
 
       &:hover {
         box-shadow: 1px 1px 10px rgba(1, 33, 34, 0.925);
