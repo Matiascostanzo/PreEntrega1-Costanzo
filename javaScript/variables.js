@@ -27,6 +27,22 @@ let continentes = [
   },
 ];
 
+let destinosIslandia = [
+  { pais: "Islandia", nombre: "Auroras Boreales" },
+
+  {
+    pais: "Islandia",
+    nombre: "Costa Sur",
+  },
+
+  {
+    pais: "Islandia",
+    nombre: "Glaciar Katla",
+  },
+];
+
+let destinosEEUU = [{ pais: "Estados unidos", nombre: "Parque nacional Zion" }];
+
 // const africa = [
 //   "Egipto",
 //   "Marruecos",
