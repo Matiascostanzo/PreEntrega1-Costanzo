@@ -12,7 +12,7 @@ let continentes = [
   {
     codigo: 3,
     nombre: "Africa",
-    destinos: ["Safari"],
+    destinos: ["Safari Uganda"],
   },
   {
     codigo: 4,

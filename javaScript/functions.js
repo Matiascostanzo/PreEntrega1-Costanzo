@@ -66,9 +66,9 @@ function elegirExcursion() {
       case "1":
         console.log("Lista de destinos de America disponibles \n");
         continentes.forEach(function (destino) {
-          if (destino.nombre == "America") {
-            continenteSeleccionado = destino.continente;
-            destino.continente.forEach(function (destinos) {
+          if (destino.codigo == "1") {
+            continenteSeleccionado = destino.nombre;
+            destino.destinos.forEach(function (destinos) {
               console.log(destinos);
             });
           }
@@ -106,11 +106,12 @@ function elegirExcursion() {
         }
 
       case "2":
-        console.log("Lista de países de Asia disponibles \n");
-        continentes.forEach(function (continente) {
-          if (continente.codigo == "2") {
-            continente.paises.forEach(function (paises) {
-              console.log(paises);
+        console.log("Lista de destinos de Asia disponibles \n");
+        continentes.forEach(function (destino) {
+          if (destino.codigo == "2") {
+            continenteSeleccionado = destino.nombre;
+            destino.destinos.forEach(function (destinos) {
+              console.log(destinos);
             });
           }
         });
@@ -145,11 +146,12 @@ function elegirExcursion() {
         }
 
       case "3":
-        console.log("Lista de países de Africa disponibles \n");
-        continentes.forEach(function (continentee) {
-          if (continente.codigo == "3") {
-            continente.paises.forEach(function (paises) {
-              console.log(paises);
+        console.log("Lista de destinos de Africa disponibles \n");
+        continentes.forEach(function (destino) {
+          if (destino.codigo == "3") {
+            continenteSeleccionado = destino.nombre;
+            destino.destinos.forEach(function (destinos) {
+              console.log(destinos);
             });
           }
         });
@@ -184,11 +186,12 @@ function elegirExcursion() {
         }
 
       case "4":
-        console.log("Lista de países de Europa disponibles \n");
-        continentes.forEach(function (continente) {
-          if (continente.codigo == "4") {
-            continente.paises.forEach(function (paises) {
-              console.log(paises);
+        console.log("Lista de destinos de Europa disponibles \n");
+        continentes.forEach(function (destino) {
+          if (destino.codigo == "4") {
+            continenteSeleccionado = destino.nombre;
+            destino.destinos.forEach(function (destinos) {
+              console.log(destinos);
             });
           }
         });
@@ -223,15 +226,15 @@ function elegirExcursion() {
         }
 
       case "5":
-        console.log("Lista de países de Oceania disponibles \n");
-        continentes.forEach(function (continente) {
-          if (continente.codigo == "5") {
-            continente.paises.forEach(function (paises) {
-              console.log(paises);
+        console.log("Lista de destinos de Oceania disponibles \n");
+        continentes.forEach(function (destino) {
+          if (destino.codigo == "5") {
+            continenteSeleccionado = destino.nombre;
+            destino.destinos.forEach(function (destinos) {
+              console.log(destinos);
             });
           }
         });
-
         do {
           paisEncontrado = false;
           pais = prompt("¿Qué país de Oceania quieres visitar?");
