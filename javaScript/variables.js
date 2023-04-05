@@ -2,46 +2,55 @@ let continentes = [
   {
     codigo: 1,
     nombre: "America",
-    paises: ["Estados unidos", "Mexico", "Brasil", "Argentina"],
+    destinos: ["Parque nacional zion"],
   },
   {
     codigo: 2,
     nombre: "Asia",
-    paises: ["China", "Japon", "India", "Corea del sur"],
+    destinos: ["Muralla china", "Taj mahal"],
   },
   {
     codigo: 3,
     nombre: "Africa",
-    paises: ["Nigeria", "Egipto", "Sudafrica", "Marruecos"],
+    destinos: ["Safari"],
   },
   {
     codigo: 4,
     nombre: "Europa",
-    paises: ["España", "Noruega", "Italia", "Islandia"],
+    destinos: ["Auroras boreales", "Glaciar Katla", "Costa sur"],
   },
 
   {
     codigo: 5,
     nombre: "Oceania",
-    paises: ["Australia", "Nueva zelanda", "Fiji", "Papúa nueva guinea"],
+    destinos: ["Buceo barrera de coral", "Parque nacional Fiordland"],
   },
 ];
 
-let destinosIslandia = [
-  { pais: "Islandia", nombre: "Auroras Boreales" },
+// let destinos = [
+//   { pais: "Islandia", nombre: "Auroras Boreales", continente: "Europa" },
 
-  {
-    pais: "Islandia",
-    nombre: "Costa Sur",
-  },
+//   {
+//     pais: "Islandia",
+//     nombre: "Costa Sur",
+//     continente: "Europa",
+//   },
 
-  {
-    pais: "Islandia",
-    nombre: "Glaciar Katla",
-  },
-];
+//   {
+//     pais: "Islandia",
+//     nombre: "Glaciar Katla",
+//     continente: "Europa",
+//   },
 
-let destinosEEUU = [{ pais: "Estados unidos", nombre: "Parque nacional Zion" }];
+//   {
+//     pais: "Estados unidos",
+//     nombre: "Parque nacional Zion",
+//     continente: "America",
+//   },
+
+//   { pais: "India", nombre: "Taj mahal", continente: "Asia" },
+//   { pais: "China", nombre: "Muralla china", continente: "Asia" },
+// ];
 
 // const africa = [
 //   "Egipto",

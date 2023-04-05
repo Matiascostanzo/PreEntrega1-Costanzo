@@ -4,6 +4,7 @@ let result = true;
 let paisEncontrado = false;
 let eleccion = "";
 let continenteSeleccionado = "";
+let compras = [];
 const continentesPosibles = {
   1: "Elegiste America",
   2: "Elegiste Asia",
@@ -63,12 +64,12 @@ function elegirExcursion() {
     switch (hospedaje) {
       //Nos consulta que país queremos visitar  de dicho continente elegido
       case "1":
-        console.log("Lista de países de America disponibles \n");
-        continentes.forEach(function (continente) {
-          if (continente.codigo == "1") {
-            continenteSeleccionado = continente.nombre;
-            continente.paises.forEach(function (paises) {
-              console.log(paises);
+        console.log("Lista de destinos de America disponibles \n");
+        continentes.forEach(function (destino) {
+          if (destino.nombre == "America") {
+            continenteSeleccionado = destino.continente;
+            destino.continente.forEach(function (destinos) {
+              console.log(destinos);
             });
           }
         });
@@ -107,7 +108,7 @@ function elegirExcursion() {
       case "2":
         console.log("Lista de países de Asia disponibles \n");
         continentes.forEach(function (continente) {
-          if (continentes.codigo == "2") {
+          if (continente.codigo == "2") {
             continente.paises.forEach(function (paises) {
               console.log(paises);
             });
@@ -146,7 +147,7 @@ function elegirExcursion() {
       case "3":
         console.log("Lista de países de Africa disponibles \n");
         continentes.forEach(function (continentee) {
-          if (continentes.codigo == "3") {
+          if (continente.codigo == "3") {
             continente.paises.forEach(function (paises) {
               console.log(paises);
             });
@@ -185,7 +186,7 @@ function elegirExcursion() {
       case "4":
         console.log("Lista de países de Europa disponibles \n");
         continentes.forEach(function (continente) {
-          if (continentes.codigo == "4") {
+          if (continente.codigo == "4") {
             continente.paises.forEach(function (paises) {
               console.log(paises);
             });
@@ -221,10 +222,10 @@ function elegirExcursion() {
           break;
         }
 
-      case "Oceania":
+      case "5":
         console.log("Lista de países de Oceania disponibles \n");
         continentes.forEach(function (continente) {
-          if (continentes.codigo == "5") {
+          if (continente.codigo == "5") {
             continente.paises.forEach(function (paises) {
               console.log(paises);
             });
