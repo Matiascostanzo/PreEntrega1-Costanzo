@@ -1,9 +1,9 @@
 let continente = "";
-let pais = "";
+let destinoElegido = "";
 let result = true;
-let paisEncontrado = false;
+let destinoEncontrado = false;
 let eleccion = "";
-let continenteSeleccionado = "";
+let destinoSeleccionado = "";
 let compras = [];
 const continentesPosibles = {
   1: "Elegiste America",
@@ -76,34 +76,33 @@ function elegirExcursion() {
 
         do {
           paisEncontrado = false;
-          pais = prompt("¿Qué país de América quieres visitar?");
-          pais = primerLetraMayuscula(pais);
+          destinoElegido = prompt("¿Qué destino de América quieres visitar?");
+          destinoElegido = primerLetraMayuscula(destinoElegido);
 
           // Verifica si el país ingresado por el usuario está en la lista de países del continente elegido
-          continentes.forEach(function (continente) {
-            if (continente.codigo == "1") {
-              continente.paises.forEach(function (paisContinente) {
-                if (paisContinente === pais) {
-                  paisEncontrado = true;
-                  continenteSeleccionado = continente.nombre;
+          continentes.forEach(function (destino) {
+            if (destino.codigo == "1") {
+              destino.destinos.forEach(function (elegido) {
+                if (elegido === destinoElegido) {
+                  destinoEncontrado = true;
+                  destinoSeleccionado = destino.nombre;
                 }
               });
             }
           });
 
           // Si el país ingresado no está en la lista, pide al usuario que ingrese otro país
-          if (!paisEncontrado) {
-            continenteSeleccionado = continente.nombre;
-            console.log(`Lo siento, ${pais} no es un país válido en America .`);
+          if (!destinoEncontrado) {
+            console.log(
+              `Lo siento, ${destinoElegido} no es un destino válido en América.`
+            );
           }
-        } while (!paisEncontrado);
-        {
-          console.log(
-            `¡Excelente elección! Quieres visitar ${pais} en ${continenteSeleccionado}.`
-          );
+        } while (!destinoEncontrado);
 
-          break;
-        }
+        console.log(
+          `¡Excelente elección! Quieres visitar ${destinoElegido} en ${destinoSeleccionado}.`
+        );
+        break;
 
       case "2":
         console.log("Lista de destinos de Asia disponibles \n");
@@ -118,32 +117,33 @@ function elegirExcursion() {
 
         do {
           paisEncontrado = false;
-          pais = prompt("¿Qué país de Asia quieres visitar?");
-          pais = primerLetraMayuscula(pais);
+          destinoElegido = prompt("¿Qué destino de América quieres visitar?");
+          destinoElegido = primerLetraMayuscula(destinoElegido);
 
           // Verifica si el país ingresado por el usuario está en la lista de países del continente elegido
-          continentes.forEach(function (continente) {
-            if (continente.codigo == "2") {
-              continente.paises.forEach(function (paisContinente) {
-                if (paisContinente === pais) {
-                  paisEncontrado = true;
-                  continenteSeleccionado = continente.nombre;
+          continentes.forEach(function (destino) {
+            if (destino.codigo == "2") {
+              destino.destinos.forEach(function (elegido) {
+                if (elegido === destinoElegido) {
+                  destinoEncontrado = true;
+                  destinoSeleccionado = destino.nombre;
                 }
               });
             }
           });
 
           // Si el país ingresado no está en la lista, pide al usuario que ingrese otro país
-          if (!paisEncontrado) {
-            console.log(`Lo siento, ${pais} no es un país válido en Asia.`);
+          if (!destinoEncontrado) {
+            console.log(
+              `Lo siento, ${destinoElegido} no es un destino válido en Asia.`
+            );
           }
-        } while (!paisEncontrado);
-        {
-          console.log(
-            `¡Excelente elección! Quieres visitar ${pais} en ${continenteSeleccionado}.`
-          );
-          break;
-        }
+        } while (!destinoEncontrado);
+
+        console.log(
+          `¡Excelente elección! Quieres visitar ${destinoElegido} en ${destinoSeleccionado}.`
+        );
+        break;
 
       case "3":
         console.log("Lista de destinos de Africa disponibles \n");
@@ -158,32 +158,33 @@ function elegirExcursion() {
 
         do {
           paisEncontrado = false;
-          pais = prompt("¿Qué país de Africa quieres visitar?");
-          pais = primerLetraMayuscula(pais);
+          destinoElegido = prompt("¿Qué destino de Africa quieres visitar?");
+          destinoElegido = primerLetraMayuscula(destinoElegido);
 
           // Verifica si el país ingresado por el usuario está en la lista de países del continente elegido
-          continentes.forEach(function (continente) {
-            if (continente.codigo == "3") {
-              continente.paises.forEach(function (paisContinente) {
-                if (paisContinente === pais) {
-                  paisEncontrado = true;
-                  continenteSeleccionado = continente.nombre;
+          continentes.forEach(function (destino) {
+            if (destino.codigo == "3") {
+              destino.destinos.forEach(function (elegido) {
+                if (elegido === destinoElegido) {
+                  destinoEncontrado = true;
+                  destinoSeleccionado = destino.nombre;
                 }
               });
             }
           });
 
           // Si el país ingresado no está en la lista, pide al usuario que ingrese otro país
-          if (!paisEncontrado) {
-            console.log(`Lo siento, ${pais} no es un país válido en Africa.`);
+          if (!destinoEncontrado) {
+            console.log(
+              `Lo siento, ${destinoElegido} no es un destino válido en Africa.`
+            );
           }
-        } while (!paisEncontrado);
-        {
-          console.log(
-            `¡Excelente elección! Quieres visitar ${pais} en ${continenteSeleccionado}.`
-          );
-          break;
-        }
+        } while (!destinoEncontrado);
+
+        console.log(
+          `¡Excelente elección! Quieres visitar ${destinoElegido} en ${destinoSeleccionado}.`
+        );
+        break;
 
       case "4":
         console.log("Lista de destinos de Europa disponibles \n");
@@ -198,32 +199,33 @@ function elegirExcursion() {
 
         do {
           paisEncontrado = false;
-          pais = prompt("¿Qué país de Europa quieres visitar?");
-          pais = primerLetraMayuscula(pais);
+          destinoElegido = prompt("¿Qué destino de Europa quieres visitar?");
+          destinoElegido = primerLetraMayuscula(destinoElegido);
 
           // Verifica si el país ingresado por el usuario está en la lista de países del continente elegido
-          continentes.forEach(function (continente) {
-            if (continente.codigo == "4") {
-              continente.paises.forEach(function (paisContinente) {
-                if (paisContinente === pais) {
-                  paisEncontrado = true;
-                  continenteSeleccionado = continente.nombre;
+          continentes.forEach(function (destino) {
+            if (destino.codigo == "4") {
+              destino.destinos.forEach(function (elegido) {
+                if (elegido === destinoElegido) {
+                  destinoEncontrado = true;
+                  destinoSeleccionado = destino.nombre;
                 }
               });
             }
           });
 
           // Si el país ingresado no está en la lista, pide al usuario que ingrese otro país
-          if (!paisEncontrado) {
-            console.log(`Lo siento, ${pais} no es un país válido en Europa.`);
+          if (!destinoEncontrado) {
+            console.log(
+              `Lo siento, ${destinoElegido} no es un destino válido en Europa.`
+            );
           }
-        } while (!paisEncontrado);
-        {
-          console.log(
-            `¡Excelente elección! Quieres visitar ${pais} en ${continenteSeleccionado}.`
-          );
-          break;
-        }
+        } while (!destinoEncontrado);
+
+        console.log(
+          `¡Excelente elección! Quieres visitar ${destinoElegido} en ${destinoSeleccionado}.`
+        );
+        break;
 
       case "5":
         console.log("Lista de destinos de Oceania disponibles \n");
@@ -235,34 +237,36 @@ function elegirExcursion() {
             });
           }
         });
+
         do {
           paisEncontrado = false;
-          pais = prompt("¿Qué país de Oceania quieres visitar?");
-          pais = primerLetraMayuscula(pais);
+          destinoElegido = prompt("¿Qué destino de Oceania quieres visitar?");
+          destinoElegido = primerLetraMayuscula(destinoElegido);
 
           // Verifica si el país ingresado por el usuario está en la lista de países del continente elegido
-          continentes.forEach(function (continente) {
-            if (continentes.codigo == "5") {
-              continente.paises.forEach(function (paisContinente) {
-                if (paisContinente === pais) {
-                  paisEncontrado = true;
-                  continenteSeleccionado = continente.nombre;
+          continentes.forEach(function (destino) {
+            if (destino.codigo == "5") {
+              destino.destinos.forEach(function (elegido) {
+                if (elegido === destinoElegido) {
+                  destinoEncontrado = true;
+                  destinoSeleccionado = destino.nombre;
                 }
               });
             }
           });
 
           // Si el país ingresado no está en la lista, pide al usuario que ingrese otro país
-          if (!paisEncontrado) {
-            console.log(`Lo siento, ${pais} no es un país válido en Oceania.`);
+          if (!destinoEncontrado) {
+            console.log(
+              `Lo siento, ${destinoElegido} no es un destino válido en Oceania.`
+            );
           }
-        } while (!paisEncontrado);
-        {
-          console.log(
-            `¡Excelente elección! Quieres visitar ${pais} en ${continenteSeleccionado}.`
-          );
-          break;
-        }
+        } while (!destinoEncontrado);
+
+        console.log(
+          `¡Excelente elección! Quieres visitar ${destinoElegido} en ${destinoSeleccionado}.`
+        );
+        break;
     }
   }
 }
