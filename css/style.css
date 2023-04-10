@@ -402,7 +402,7 @@
     border-radius: 15px;
     border: 3px solid #e3f2fd;
     background: url(../images/buscador.png) no-repeat left;
-    transition: all 0.6s;
+    transition: all 0.5s ease;
   }
   body .buscador input.src:hover {
     width: 300px;
