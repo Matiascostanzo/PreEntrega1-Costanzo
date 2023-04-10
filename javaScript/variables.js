@@ -1,99 +1,83 @@
-let continentes = [
+const destinos = [
   {
     codigo: 1,
-    nombre: "America",
-    destinos: ["Parque nacional zion"],
+    nombre: "Auroras Boreales",
+    continente: "Europa",
+    pais: "Islandia",
+    precio: 150,
   },
   {
     codigo: 2,
-    nombre: "Asia",
-    destinos: ["Muralla china", "Taj mahal"],
+    nombre: "Costa Sur",
+    continente: "Europa",
+    pais: "Islandia",
+    precio: 130,
   },
   {
     codigo: 3,
-    nombre: "Africa",
-    destinos: ["Safari Uganda"],
+    nombre: "Glaciar Katla",
+    continente: "Europa",
+    pais: "Islandia",
+    precio: 200,
   },
   {
     codigo: 4,
-    nombre: "Europa",
-    destinos: ["Auroras boreales", "Glaciar Katla", "Costa sur"],
+    nombre: "Parque Nacional Zion",
+    continente: "América",
+    pais: "Estados Unidos",
+    precio: 100,
   },
 
   {
     codigo: 5,
-    nombre: "Oceania",
-    destinos: ["Buceo barrera de coral", "Parque nacional Fiordland"],
+    nombre: "Cataratas del Iguazu",
+    continente: "América",
+    pais: "Argentina",
+    precio: 110,
+  },
+  {
+    codigo: 6,
+    nombre: "Safari en Uganda",
+    continente: "África",
+    pais: "Uganda",
+    precio: 250,
+  },
+
+  {
+    codigo: 7,
+    nombre: "Piramides de Egipto",
+    continente: "África",
+    pais: "Egipto",
+    precio: 200,
+  },
+  {
+    codigo: 8,
+    nombre: "Buceo en la Gran Barrera de coral",
+    continente: "Oceanía",
+    pais: "Australia",
+    precio: 280,
+  },
+  {
+    codigo: 9,
+    nombre: "Parque Nacional Fiordland",
+    continente: "Oceanía",
+    pais: "Nueva Zelanda",
+    precio: 150,
+  },
+  {
+    codigo: 10,
+    nombre: "Taj Mahal",
+    continente: "Asia",
+    pais: "India",
+    precio: 100,
+  },
+  {
+    codigo: 11,
+    nombre: "Visita a la Muralla China",
+    continente: "Asia",
+    pais: "China",
+    precio: 80,
   },
 ];
 
-// let destinos = [
-//   { pais: "Islandia", nombre: "Auroras Boreales", continente: "Europa" },
-
-//   {
-//     pais: "Islandia",
-//     nombre: "Costa Sur",
-//     continente: "Europa",
-//   },
-
-//   {
-//     pais: "Islandia",
-//     nombre: "Glaciar Katla",
-//     continente: "Europa",
-//   },
-
-//   {
-//     pais: "Estados unidos",
-//     nombre: "Parque nacional Zion",
-//     continente: "America",
-//   },
-
-//   { pais: "India", nombre: "Taj mahal", continente: "Asia" },
-//   { pais: "China", nombre: "Muralla china", continente: "Asia" },
-// ];
-
-// const africa = [
-//   "Egipto",
-//   "Marruecos",
-//   "Nigeria",
-//   "Sudáfrica",
-//   "Túnez",
-//   "Argelia",
-// ];
-// const america = [
-//   "Argentina",
-//   "Brasil",
-//   "Canadá",
-//   "Estados Unidos",
-//   "México",
-//   "Colombia",
-//   "Ecuador",
-//   "Costa Rica",
-// ];
-// const asia = [
-//   "China",
-//   "India",
-//   "Japón",
-//   "Rusia",
-//   "Turquía",
-//   "Korea del Sur",
-//   "Indonesia",
-//   "Tailandia",
-// ];
-// const europa = [
-//   "Alemania",
-//   "España",
-//   "Francia",
-//   "Italia",
-//   "Reino Unido",
-//   "Islandia",
-//   "Noruega",
-//   "Dinamarca",
-// ];
-// const oceania = [
-//   "Australia",
-//   "Fiyi",
-//   "Nueva Zelanda",
-//   "Papúa Nueva Guinea",
-//   "Tonga",
-// ];
+const carrito = [];
