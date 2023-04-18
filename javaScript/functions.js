@@ -16,8 +16,8 @@ function mostrarDestinos() {
 //Recorre el array de carrito de compras con un forEach y los muestra
 function mostrarCarrito() {
   console.log("Estas son tus compras:");
-  carrito.forEach(function (destino) {
-    console.log(destino);
+  carrito.forEach(function (carro) {
+    console.log(carro);
   });
   //Instancio un objeto con el constructor de la clase Eleccion para mostrar el total del carrito
   const precioTotal = new Eleccion(carrito);
@@ -87,3 +87,67 @@ function compras() {
   mostrarCarrito();
   carrito.length = 0;
 }
+
+//Eventos:
+
+//Eventos para el buscador
+
+const input = document.querySelector(".src");
+const resultsWrapper = document.querySelector(".results");
+
+//Funcion para mostrar los resultados de la busqueda del usuario
+
+const showResults = (results) => {
+  resultsWrapper.innerHTML = "";
+  //Crea una lista desordenada en el html y una clase llamada results-list
+  const resultsList = document.createElement("ul");
+  resultsList.classList.add("results-list");
+  resultsWrapper.appendChild(resultsList);
+
+  //Se recorre el array de resultados y se crea por cada elemento encontrado, un elemento li y se lo agrega a la clase result-item
+  results.forEach((result) => {
+    const li = document.createElement("li");
+    li.classList.add("result-item");
+    li.textContent = result.nombre + " (" + result.pais + ")";
+    //Cuando hago click en el resultado que me muestra, me autocompleta en el buscador eso mismo que me apareció en la lista
+    li.addEventListener("click", () => {
+      input.value = result.nombre + " (" + result.pais + ")";
+      resultsWrapper.style.display = "none";
+    });
+    //Cuando el mouse esta sobre una de las opciones, crea una clase llamada result-item-hover la cual tiene ciertos atributos que cambian el color de fondo para que el usuario se de cuenta que puede hacerle click
+    li.addEventListener("mouseover", () => {
+      li.classList.add("result-item-hover");
+    });
+    li.addEventListener("mouseout", () => {
+      li.classList.remove("result-item-hover");
+    });
+    resultsList.appendChild(li);
+  });
+
+  resultsWrapper.style.display = "block";
+};
+
+const filterDestinos = (searchText) => {
+  return destinos.filter((destino) =>
+    `${destino.nombre} (${destino.pais})`
+      .toLowerCase()
+      .includes(searchText.toLowerCase())
+  );
+};
+
+input.addEventListener("input", (e) => {
+  const searchText = e.target.value;
+
+  if (searchText.length > 0) {
+    const filteredDestinos = filterDestinos(searchText);
+    showResults(filteredDestinos);
+  } else {
+    resultsWrapper.style.display = "none";
+  }
+});
+
+document.addEventListener("click", (e) => {
+  if (!resultsWrapper.contains(e.target)) {
+    resultsWrapper.style.display = "none";
+  }
+});

@@ -109,6 +109,7 @@
     }
   }
   .buscador {
+    position: relative;
     padding-top: 10px;
     padding-bottom: 10px;
 
@@ -116,10 +117,52 @@
       text-align: center;
       padding: 9px 10px 9px 32px;
       outline: none;
-      font-size: 18px;
+      font-size: 15px;
       border-radius: 15px;
       border: 3px solid #e3f2fd;
       background: url(../images/buscador.png) no-repeat left;
+      transition: all 0.5s ease;
+      width: 300px;
+    }
+    input.src:hover {
+      border-color: #e3f2fd;
+      box-shadow: 0 0 5px #004e63;
+      font-size: 20px;
+    }
+    ul.results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      background-color: #ffffff;
+      border-radius: 0 0 15px 15px;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+
+      ul.results.hide-results {
+        display: none;
+      }
+      li.result {
+        padding: 5px 10px;
+        border-bottom: 1px solid #e3f2fd;
+        font-size: 15px;
+        color: #004e63;
+
+        li.result:last-child {
+          border-bottom: none;
+        }
+        li.result:hover {
+          background-color: #e3f2fd;
+          cursor: pointer;
+        }
+      }
+      .result-item-hover {
+        background-color: #f5f5f5;
+        cursor: pointer;
+      }
     }
   }
 
@@ -273,6 +316,7 @@
     }
   }
   .buscador {
+    position: relative;
     padding-top: 10px;
     padding-bottom: 10px;
 
@@ -280,10 +324,52 @@
       text-align: center;
       padding: 9px 10px 9px 32px;
       outline: none;
-      font-size: 18px;
+      font-size: 15px;
       border-radius: 15px;
       border: 3px solid #e3f2fd;
       background: url(../images/buscador.png) no-repeat left;
+      transition: all 0.5s ease;
+      width: 300px;
+    }
+    input.src:hover {
+      border-color: #e3f2fd;
+      box-shadow: 0 0 5px #004e63;
+      font-size: 20px;
+    }
+    ul.results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      background-color: #ffffff;
+      border-radius: 0 0 15px 15px;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+
+      ul.results.hide-results {
+        display: none;
+      }
+      li.result {
+        padding: 5px 10px;
+        border-bottom: 1px solid #e3f2fd;
+        font-size: 15px;
+        color: #004e63;
+
+        li.result:last-child {
+          border-bottom: none;
+        }
+        li.result:hover {
+          background-color: #e3f2fd;
+          cursor: pointer;
+        }
+      }
+      .result-item-hover {
+        background-color: #f5f5f5;
+        cursor: pointer;
+      }
     }
   }
 
@@ -456,6 +542,7 @@
       }
     }
     .buscador {
+      position: relative;
       padding-top: 10px;
       padding-bottom: 10px;
 
@@ -468,12 +555,47 @@
         border: 3px solid #e3f2fd;
         background: url(../images/buscador.png) no-repeat left;
         transition: all 0.5s ease;
+        width: 300px;
       }
       input.src:hover {
-        width: 300px;
         border-color: #e3f2fd;
         box-shadow: 0 0 5px #004e63;
         font-size: 20px;
+      }
+      ul.results {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background-color: #ffffff;
+        border-radius: 0 0 15px 15px;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+
+        ul.results.hide-results {
+          display: none;
+        }
+        li.result {
+          padding: 5px 10px;
+          border-bottom: 1px solid #e3f2fd;
+          font-size: 15px;
+          color: #004e63;
+
+          li.result:last-child {
+            border-bottom: none;
+          }
+          li.result:hover {
+            background-color: #e3f2fd;
+            cursor: pointer;
+          }
+        }
+        .result-item-hover {
+          background-color: #f5f5f5;
+          cursor: pointer;
+        }
       }
     }
     .parrafo {
