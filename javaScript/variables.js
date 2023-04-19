@@ -52,7 +52,7 @@ const destinos = [
   },
   {
     codigo: 8,
-    nombre: "Buceo en la Gran Barrera de coral",
+    nombre: "Barrera de Coral",
     continente: "Oceanía",
     pais: "Australia",
     precio: 280,
@@ -73,7 +73,7 @@ const destinos = [
   },
   {
     codigo: 11,
-    nombre: "Visita a la Muralla China",
+    nombre: "Muralla China",
     continente: "Asia",
     pais: "China",
     precio: 80,

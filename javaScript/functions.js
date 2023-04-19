@@ -28,28 +28,27 @@ function mostrarCarrito() {
 }
 
 //El usuario elije el codigo del destino que quiere visitar
-function elegirDestino() {
-  let destinoElegido = parseInt(
-    prompt("Elegir el codigo del destino que quieres visitar")
-  );
+function elegirDestino(nombreDestino) {
   //Busca el codigo ingresado por el usuario en el array destinos
   destinoEncontrado = destinos.find(
-    (destino) => destino.codigo === destinoElegido
+    (destino) => destino.nombre === nombreDestino
   );
   while (destinoEncontrado === undefined) {
     alert(
       "El codigo ingresado es invalido, por favor ingresar un codigo valido"
     );
-    destinoElegido = parseInt(
-      prompt("Ingrese el codigo del destino que quieres visitar:")
-    );
-    destinoEncontrado = destinos.find(
-      (destino) => destino.codigo === destinoElegido
-    );
+
+    destinoEncontrado = destinos.find((destino) => destino.nombre === elegido);
   }
 
-  console.log(
-    `Destino elegido: ${destinoEncontrado.nombre}, ${destinoEncontrado.pais}, $USD ${destinoEncontrado.precio}.`
+  alert(
+    "Destino elegido: " +
+      destinoEncontrado.nombre +
+      ", " +
+      destinoEncontrado.pais +
+      ", $USD " +
+      destinoEncontrado.precio +
+      "."
   );
 }
 
@@ -150,4 +149,18 @@ document.addEventListener("click", (e) => {
   if (!resultsWrapper.contains(e.target)) {
     resultsWrapper.style.display = "none";
   }
+});
+
+//Evento para reservar
+//Selecciona todos los botones de "Reservar" por su clase
+const botonesReservar = document.querySelectorAll(".reservar");
+
+//Itera sobre cada botón de "Reservar" y agrega un evento de clic a cada uno
+botonesReservar.forEach((boton) => {
+  boton.addEventListener("click", (event) => {
+    event.preventDefault(); //Previene la acción por defecto del enlace
+
+    const nombreDestino = boton.dataset.name; //Obtiene el valor del atributo "data-name"
+    elegirDestino(nombreDestino); //Llama a la función "elegirDestino" con el nombre del destino seleccionado
+  });
 });
