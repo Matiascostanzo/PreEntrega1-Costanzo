@@ -17,11 +17,11 @@ function mostrarDestinos() {
 function mostrarCarrito() {
   console.log("Estas son tus compras:");
   carrito.forEach(function (carro) {
-    console.log(carro);
+    alert(carro);
   });
   //Instancio un objeto con el constructor de la clase Eleccion para mostrar el total del carrito
   const precioTotal = new Eleccion(carrito);
-  console.log(
+  alert(
     "El precio total de las excursiones en el carrito es de: " +
       precioTotal.subtotal()
   );
@@ -38,7 +38,9 @@ function elegirDestino(nombreDestino) {
       "El codigo ingresado es invalido, por favor ingresar un codigo valido"
     );
 
-    destinoEncontrado = destinos.find((destino) => destino.nombre === elegido);
+    destinoEncontrado = destinos.find(
+      (destino) => destino.nombre === nombreDestino
+    );
   }
 
   alert(
@@ -60,6 +62,7 @@ function agregarAlCarrito() {
   if (eleccion === true) {
     console.log("Se agregó la excursion al carrito");
     carrito.push(destinoEncontrado);
+    actualizarCarrito();
   } else {
     console.log("Se eliminó la excursion:" + destinoEncontrado.nombre);
   }
@@ -162,5 +165,20 @@ botonesReservar.forEach((boton) => {
 
     const nombreDestino = boton.dataset.name; //Obtiene el valor del atributo "data-name"
     elegirDestino(nombreDestino); //Llama a la función "elegirDestino" con el nombre del destino seleccionado
+    agregarAlCarrito();
   });
+});
+
+//Evento para agregar al carrito
+function actualizarCarrito() {
+  const carritoCount = document.getElementById("cart-count");
+  carritoCount.innerHTML = carrito.length;
+}
+
+//Evento para mostrar el carrito al hacer click
+
+const cartIcon = document.querySelector(".cart-icon");
+
+cartIcon.addEventListener("click", () => {
+  mostrarCarrito();
 });

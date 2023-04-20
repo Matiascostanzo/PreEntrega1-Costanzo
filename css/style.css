@@ -91,6 +91,34 @@
   .header #check:checked ~ ul {
     left: 0;
   }
+  .cart-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+    width: 27px;
+    font-size: 25px;
+  }
+  .cart-container .cart-icon {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: black;
+    height: 50px;
+  }
+  .cart-container .cart-count {
+    background-color: grey;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+    position: absolute;
+    top: -5px;
+    right: -11px;
+    min-width: 16px;
+    text-align: center;
+    margin-top: 18px;
+  }
   .title {
     background-color: #e3f2fd;
   }
@@ -271,6 +299,34 @@
   }
   .header #check:checked ~ ul {
     left: 0;
+  }
+  .cart-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+    width: 27px;
+    font-size: 25px;
+  }
+  .cart-container .cart-icon {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: black;
+    height: 50px;
+  }
+  .cart-container .cart-count {
+    background-color: grey;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+    position: absolute;
+    top: -5px;
+    right: -11px;
+    min-width: 16px;
+    text-align: center;
+    margin-top: 18px;
   }
   .title {
     background-color: #e3f2fd;
@@ -457,6 +513,34 @@
   }
   .header nav .link:hover {
     background: grey;
+  }
+  .cart-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+    width: 27px;
+    font-size: 25px;
+  }
+  .cart-container .cart-icon {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: black;
+    height: 50px;
+  }
+  .cart-container .cart-count {
+    background-color: grey;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+    position: absolute;
+    top: -5px;
+    right: -11px;
+    min-width: 16px;
+    text-align: center;
+    margin-top: 18px;
   }
   footer {
     background-color: #004e63;
