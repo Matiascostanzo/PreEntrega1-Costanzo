@@ -15,11 +15,10 @@ function mostrarDestinos() {
 
 //Recorre el array de carrito de compras con un forEach y los muestra
 function mostrarCarrito() {
-  console.log("Estas son tus compras:");
   carrito.forEach(function (carro) {
-    alert(carro);
+    alert("Estas son tus compras: " + carro.nombre + " - " + carro.precio); // Mostrar solo el nombre y el precio de cada elemento en el carrito
   });
-  //Instancio un objeto con el constructor de la clase Eleccion para mostrar el total del carrito
+
   const precioTotal = new Eleccion(carrito);
   alert(
     "El precio total de las excursiones en el carrito es de: " +
