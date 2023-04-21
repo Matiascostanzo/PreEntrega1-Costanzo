@@ -102,8 +102,8 @@
   }
   .cart-container {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 85px;
+    right: 200px;
     z-index: 999;
     width: 27px;
     font-size: 25px;
@@ -128,6 +128,35 @@
       min-width: 16px;
       text-align: center;
       margin-top: 18px;
+    }
+  }
+  .contenedorBoton {
+    display: flex;
+    justify-content: flex-end;
+
+    .botonCompra {
+      margin: 15px;
+      padding: 5px 15px;
+      text-align: center;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-decoration: none;
+      color: grey;
+      background: transparent;
+      cursor: pointer;
+      transition: ease-out 0.5s;
+      border: 2px solid #004e63;
+      border-radius: 10px;
+      box-shadow: inset 0 0 0 0 #004e63;
+
+      &:hover {
+        color: white;
+        box-shadow: inset 0 -100px 0 0 #004e63;
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
     }
   }
   // Page body
@@ -339,8 +368,8 @@
   }
   .cart-container {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 85px;
+    right: 200px;
     z-index: 999;
     width: 27px;
     font-size: 25px;
@@ -365,6 +394,36 @@
       min-width: 16px;
       text-align: center;
       margin-top: 18px;
+    }
+  }
+
+  .contenedorBoton {
+    display: flex;
+    justify-content: flex-end;
+
+    .botonCompra {
+      margin: 15px;
+      padding: 5px 15px;
+      text-align: center;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-decoration: none;
+      color: grey;
+      background: transparent;
+      cursor: pointer;
+      transition: ease-out 0.5s;
+      border: 2px solid #004e63;
+      border-radius: 10px;
+      box-shadow: inset 0 0 0 0 #004e63;
+
+      &:hover {
+        color: white;
+        box-shadow: inset 0 -100px 0 0 #004e63;
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
     }
   }
   // Page body
@@ -618,30 +677,30 @@
   .contenedorBoton {
     display: flex;
     justify-content: flex-end;
-  }
 
-  .botonCompra {
-    margin: 15px;
-    padding: 5px 15px;
-    text-align: center;
-    font-size: 15px;
-    letter-spacing: 1px;
-    text-decoration: none;
-    color: grey;
-    background: transparent;
-    cursor: pointer;
-    transition: ease-out 0.5s;
-    border: 2px solid #004e63;
-    border-radius: 10px;
-    box-shadow: inset 0 0 0 0 #004e63;
+    .botonCompra {
+      margin: 15px;
+      padding: 5px 15px;
+      text-align: center;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-decoration: none;
+      color: grey;
+      background: transparent;
+      cursor: pointer;
+      transition: ease-out 0.5s;
+      border: 2px solid #004e63;
+      border-radius: 10px;
+      box-shadow: inset 0 0 0 0 #004e63;
 
-    &:hover {
-      color: white;
-      box-shadow: inset 0 -100px 0 0 #004e63;
-    }
+      &:hover {
+        color: white;
+        box-shadow: inset 0 -100px 0 0 #004e63;
+      }
 
-    &:active {
-      transform: scale(0.9);
+      &:active {
+        transform: scale(0.9);
+      }
     }
   }
 

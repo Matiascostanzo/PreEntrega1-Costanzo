@@ -1,3 +1,6 @@
+// Aquí va todo tu código JavaScript
+// ...
+
 // Paso 1: Mostrar la lista de destinos disponibles
 // Paso 2: Que el usuario ingrese el codigo del destino que quiere ir y corroborar que esté en el array de destinos
 // Paso 3: Preguntarle al usuario si esta seguro de querer agregar esa Excursion
@@ -25,35 +28,35 @@ function mostrarCarrito() {
       precioTotal.subtotal()
   );
 }
+//Evento para agregar al carrito
+function actualizarCarrito() {
+  const carritoCount = document.getElementById("cart-count");
+  carritoCount.innerHTML = carrito.length;
+}
 
 //El usuario elije el codigo del destino que quiere visitar
-function elegirDestino(nombreDestino) {
+function elegirDestino(codigoDestino) {
   //Busca el codigo ingresado por el usuario en el array destinos
   destinoEncontrado = destinos.find(
-    (destino) => destino.nombre === nombreDestino
+    (destino) => destino.codigo === codigoDestino
   );
-  while (destinoEncontrado === undefined) {
-    alert(
-      "El codigo ingresado es invalido, por favor ingresar un codigo valido"
-    );
+  console.log("Destino encontrado: ", destinoEncontrado);
+  if (destinoEncontrado) {
+    carrito.push(destinoEncontrado);
 
-    destinoEncontrado = destinos.find(
-      (destino) => destino.nombre === nombreDestino
+    alert(
+      `Destino agregado al carrito: ${destinoEncontrado.nombre} pais:${destinoEncontrado.pais} $USD ${destinoEncontrado.precio}`
+    );
+  } else {
+    alert(
+      "El código ingresado es inválido, por favor ingresar un código válido"
     );
   }
-
-  alert(
-    "Destino elegido: " +
-      destinoEncontrado.nombre +
-      ", " +
-      destinoEncontrado.pais +
-      ", $USD " +
-      destinoEncontrado.precio +
-      "."
-  );
+  actualizarCarrito();
 }
 
 function agregarAlCarrito() {
+  console.log("Destino a agregar al carrito:", destinoEncontrado);
   let eleccion = confirm(
     "¿Quieres agregar ese destino a tu carrito de compras?"
   );
@@ -77,16 +80,6 @@ function elegirOtro() {
       agregarAlCarrito();
     }
   }
-}
-
-//Funcion principal que llama al resto de las funciones y al final reinicio el carrito a 0
-function compras() {
-  mostrarDestinos();
-  elegirDestino();
-  agregarAlCarrito();
-  elegirOtro();
-  mostrarCarrito();
-  carrito.length = 0;
 }
 
 //Eventos:
@@ -158,21 +151,16 @@ document.addEventListener("click", (e) => {
 const botonesReservar = document.querySelectorAll(".reservar");
 
 //Itera sobre cada botón de "Reservar" y agrega un evento de clic a cada uno
+
 botonesReservar.forEach((boton) => {
   boton.addEventListener("click", (event) => {
-    event.preventDefault(); //Previene la acción por defecto del enlace
+    event.preventDefault();
 
-    const nombreDestino = boton.dataset.name; //Obtiene el valor del atributo "data-name"
-    elegirDestino(nombreDestino); //Llama a la función "elegirDestino" con el nombre del destino seleccionado
-    agregarAlCarrito();
+    const codigoDestino = boton.dataset.id;
+    console.log("Código del destino seleccionado:", codigoDestino);
+    elegirDestino(codigoDestino);
   });
 });
-
-//Evento para agregar al carrito
-function actualizarCarrito() {
-  const carritoCount = document.getElementById("cart-count");
-  carritoCount.innerHTML = carrito.length;
-}
 
 //Evento para mostrar el carrito al hacer click
 
@@ -180,4 +168,38 @@ const cartIcon = document.querySelector(".cart-icon");
 
 cartIcon.addEventListener("click", () => {
   mostrarCarrito();
+});
+
+//Generar las cards de forma dinamica
+const contenedorCards = document.querySelector(".cardContainer");
+
+function generarCard(destino) {
+  console.log(
+    `Agregando botón para destino ${destino.nombre}, código ${destino.codigo}`
+  );
+
+  return `
+    <div class="card">
+      <figure>
+        <img src="images/${destino.nombre.toLowerCase()}.jpg" alt="${
+    destino.nombre
+  }" />
+      </figure>
+      <div class="contenido">
+        <h3>${destino.pais}</h3>
+        <h5>${destino.nombre}</h5>
+        <p>
+          ${destino.texto}
+        </p>
+        <h6>$${destino.precio}</h6>
+        <a href="#" data-id="${destino.codigo}" class="reservar" data-name="${
+    destino.nombre
+  }">Reservar</a>
+      </div>
+    </div>
+  `;
+}
+destinos.forEach((destino) => {
+  const card = generarCard(destino);
+  contenedorCards.innerHTML += card;
 });
