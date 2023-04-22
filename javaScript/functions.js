@@ -37,6 +37,7 @@ function actualizarCarrito() {
 //El usuario elije el codigo del destino que quiere visitar
 function elegirDestino(codigoDestino) {
   //Busca el codigo ingresado por el usuario en el array destinos
+  console.log(destinos);
   destinoEncontrado = destinos.find(
     (destino) => destino.codigo === codigoDestino
   );
@@ -146,22 +147,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-//Evento para reservar
-//Selecciona todos los botones de "Reservar" por su clase
-const botonesReservar = document.querySelectorAll(".reservar");
-
-//Itera sobre cada botón de "Reservar" y agrega un evento de clic a cada uno
-
-botonesReservar.forEach((boton) => {
-  boton.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    const codigoDestino = boton.dataset.id;
-    console.log("Código del destino seleccionado:", codigoDestino);
-    elegirDestino(codigoDestino);
-  });
-});
-
 //Evento para mostrar el carrito al hacer click
 
 const cartIcon = document.querySelector(".cart-icon");
@@ -174,10 +159,6 @@ cartIcon.addEventListener("click", () => {
 const contenedorCards = document.querySelector(".cardContainer");
 
 function generarCard(destino) {
-  console.log(
-    `Agregando botón para destino ${destino.nombre}, código ${destino.codigo}`
-  );
-
   return `
     <div class="card">
       <figure>
@@ -192,9 +173,9 @@ function generarCard(destino) {
           ${destino.texto}
         </p>
         <h6>$${destino.precio}</h6>
-        <a href="#" data-id="${destino.codigo}" class="reservar" data-name="${
-    destino.nombre
-  }">Reservar</a>
+        <button href="#" data-id="${
+          destino.codigo
+        }" class="reservar" data-name="${destino.nombre}">Reservar</button>
       </div>
     </div>
   `;
@@ -202,4 +183,19 @@ function generarCard(destino) {
 destinos.forEach((destino) => {
   const card = generarCard(destino);
   contenedorCards.innerHTML += card;
+});
+//Evento para reservar
+//Selecciona todos los botones de "Reservar" por su clase
+const botonesReservar = document.querySelectorAll(".reservar");
+
+//Itera sobre cada botón de "Reservar" y agrega un evento de clic a cada uno
+
+botonesReservar.forEach((boton) => {
+  boton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const codigoDestino = boton.dataset.id;
+
+    elegirDestino(codigoDestino);
+  });
 });
