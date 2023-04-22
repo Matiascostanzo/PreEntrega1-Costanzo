@@ -37,9 +37,9 @@ function actualizarCarrito() {
 //El usuario elije el codigo del destino que quiere visitar
 function elegirDestino(codigoDestino) {
   //Busca el codigo ingresado por el usuario en el array destinos
-  console.log(destinos);
+
   destinoEncontrado = destinos.find(
-    (destino) => destino.codigo === codigoDestino
+    (destino) => destino.codigo == codigoDestino
   );
   console.log("Destino encontrado: ", destinoEncontrado);
   if (destinoEncontrado) {
