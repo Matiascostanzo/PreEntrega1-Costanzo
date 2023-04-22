@@ -1,20 +1,4 @@
-// Aquí va todo tu código JavaScript
-// ...
-
-// Paso 1: Mostrar la lista de destinos disponibles
-// Paso 2: Que el usuario ingrese el codigo del destino que quiere ir y corroborar que esté en el array de destinos
-// Paso 3: Preguntarle al usuario si esta seguro de querer agregar esa Excursion
-// Paso 4: Si confirma, agregarlo al carrito , sino, volver Atras
-// Paso 5: Preguntarle si quiere seguir agregando algun destino, si si, volver a solicitar que el usuario ingrese un codigo, sino, mostrar el total del carrito y finalizar
 let destinoEncontrado = [];
-
-//Recorre el array de destinos con un forEach y los muestra
-function mostrarDestinos() {
-  console.log("Destinos disponibles:");
-  destinos.forEach(function (destino) {
-    console.log(destino);
-  });
-}
 
 //Recorre el array de carrito de compras con un forEach y los muestra
 function mostrarCarrito() {
@@ -28,15 +12,14 @@ function mostrarCarrito() {
       precioTotal.subtotal()
   );
 }
-//Evento para agregar al carrito
+//Evento para aumentar la cantidad de excursiones en el carrito
 function actualizarCarrito() {
   const carritoCount = document.getElementById("cart-count");
   carritoCount.innerHTML = carrito.length;
 }
 
-//El usuario elije el codigo del destino que quiere visitar
 function elegirDestino(codigoDestino) {
-  //Busca el codigo ingresado por el usuario en el array destinos
+  //Busca el codigo que llega por parametro al hacer click en el boton reservar en las cards
 
   destinoEncontrado = destinos.find(
     (destino) => destino.codigo == codigoDestino
@@ -54,33 +37,6 @@ function elegirDestino(codigoDestino) {
     );
   }
   actualizarCarrito();
-}
-
-function agregarAlCarrito() {
-  console.log("Destino a agregar al carrito:", destinoEncontrado);
-  let eleccion = confirm(
-    "¿Quieres agregar ese destino a tu carrito de compras?"
-  );
-  //Si el usuario confirma que quiere agregar esa excursion, la agrega al carrito
-  if (eleccion === true) {
-    console.log("Se agregó la excursion al carrito");
-    carrito.push(destinoEncontrado);
-    actualizarCarrito();
-  } else {
-    console.log("Se eliminó la excursion:" + destinoEncontrado.nombre);
-  }
-}
-
-//Si el usuario quiere seguir agregando excursiones, llamo a las funciones elegisDestino y agregarAlCarrito
-function elegirOtro() {
-  let decision = true;
-  while (decision) {
-    decision = confirm("¿Quieres seguir agregando excursiones al carrito?");
-    if (decision) {
-      elegirDestino();
-      agregarAlCarrito();
-    }
-  }
 }
 
 //Eventos:
@@ -198,4 +154,13 @@ botonesReservar.forEach((boton) => {
 
     elegirDestino(codigoDestino);
   });
+});
+
+//Evento para simular la finalizacion de la compra
+const finalizarCompra = document.querySelector(".botonCompra");
+
+finalizarCompra.addEventListener("click", (e) => {
+  alert("Gracias por su compra! Vuelva pronto");
+  carrito.length = 0;
+  actualizarCarrito();
 });
