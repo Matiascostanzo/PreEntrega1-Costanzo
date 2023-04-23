@@ -1,21 +1,40 @@
 let destinoEncontrado = [];
+// Cargar el carrito al cargar la página
 
 //Recorre el array de carrito de compras con un forEach y los muestra
 function mostrarCarrito() {
+  if (carrito.length == 0) {
+    alert("El carrito está vacío");
+    return;
+  }
+
   carrito.forEach(function (carro) {
-    alert("Estas son tus compras: " + carro.nombre + " - " + carro.precio); // Mostrar solo el nombre y el precio de cada elemento en el carrito
+    alert(
+      "Estas son tus compras: " + carro.nombre + " - " + "USD$" + carro.precio
+    ); // Mostrar solo el nombre y el precio de cada elemento en el carrito
   });
 
   const precioTotal = new Eleccion(carrito);
   alert(
-    "El precio total de las excursiones en el carrito es de: " +
+    "El precio total de las excursiones en el carrito es de: USD$ " +
       precioTotal.subtotal()
   );
 }
+
 //Evento para aumentar la cantidad de excursiones en el carrito
 function actualizarCarrito() {
   const carritoCount = document.getElementById("cart-count");
   carritoCount.innerHTML = carrito.length;
+  guardarCarrito();
+}
+
+function cargarCarrito() {
+  const carritoGuardado = localStorage.getItem("carrito");
+  if (carritoGuardado) {
+    carrito = JSON.parse(carritoGuardado);
+    actualizarCarrito();
+    console.log(carrito);
+  }
 }
 
 function elegirDestino(codigoDestino) {
@@ -25,17 +44,15 @@ function elegirDestino(codigoDestino) {
     (destino) => destino.codigo == codigoDestino
   );
   console.log("Destino encontrado: ", destinoEncontrado);
-  if (destinoEncontrado) {
-    carrito.push(destinoEncontrado);
+  destinoEncontrado
+    ? (carrito.push(destinoEncontrado),
+      alert(
+        `Destino agregado al carrito: ${destinoEncontrado.nombre} pais:${destinoEncontrado.pais} $USD ${destinoEncontrado.precio}`
+      ))
+    : alert(
+        "El código ingresado es inválido, por favor ingresar un código válido"
+      );
 
-    alert(
-      `Destino agregado al carrito: ${destinoEncontrado.nombre} pais:${destinoEncontrado.pais} $USD ${destinoEncontrado.precio}`
-    );
-  } else {
-    alert(
-      "El código ingresado es inválido, por favor ingresar un código válido"
-    );
-  }
   actualizarCarrito();
 }
 
@@ -89,12 +106,14 @@ const filterDestinos = (searchText) => {
 input.addEventListener("input", (e) => {
   const searchText = e.target.value;
 
-  if (searchText.length > 0) {
-    const filteredDestinos = filterDestinos(searchText);
-    showResults(filteredDestinos);
-  } else {
-    resultsWrapper.style.display = "none";
-  }
+  searchText.length > 0
+    ? // Expresión si la condición es verdadera
+      (() => {
+        const filteredDestinos = filterDestinos(searchText);
+        showResults(filteredDestinos);
+      })()
+    : // Expresión si la condición es falsa
+      (resultsWrapper.style.display = "none");
 });
 
 document.addEventListener("click", (e) => {
@@ -161,6 +180,21 @@ const finalizarCompra = document.querySelector(".botonCompra");
 
 finalizarCompra.addEventListener("click", (e) => {
   alert("Gracias por su compra! Vuelva pronto");
+
   carrito.length = 0;
+  guardarCarrito();
   actualizarCarrito();
 });
+
+//Local Storage
+
+// Función para guardar el carrito en localStorage
+function guardarCarrito() {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+window.addEventListener("load", function () {
+  cargarCarrito();
+});
+
+cargarCarrito();

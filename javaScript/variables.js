@@ -102,4 +102,4 @@ const destinos = [
   },
 ];
 
-const carrito = [];
+let carrito = [];
