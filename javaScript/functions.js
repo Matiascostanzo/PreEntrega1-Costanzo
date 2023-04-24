@@ -1,5 +1,4 @@
 let destinoEncontrado = [];
-// Cargar el carrito al cargar la página
 
 //Recorre el array de carrito de compras con un forEach y los muestra
 function mostrarCarrito() {
@@ -33,7 +32,6 @@ function cargarCarrito() {
   if (carritoGuardado) {
     carrito = JSON.parse(carritoGuardado);
     actualizarCarrito();
-    console.log(carrito);
   }
 }
 
@@ -179,11 +177,15 @@ botonesReservar.forEach((boton) => {
 const finalizarCompra = document.querySelector(".botonCompra");
 
 finalizarCompra.addEventListener("click", (e) => {
-  alert("Gracias por su compra! Vuelva pronto");
+  if (carrito.length == 0) {
+    alert("No es posible finalizar la compra ya que el carrito esta vacío");
+  } else {
+    alert("Gracias por su compra! Vuelva pronto");
 
-  carrito.length = 0;
-  guardarCarrito();
-  actualizarCarrito();
+    carrito.length = 0;
+    guardarCarrito();
+    actualizarCarrito();
+  }
 });
 
 //Local Storage
@@ -196,5 +198,5 @@ function guardarCarrito() {
 window.addEventListener("load", function () {
   cargarCarrito();
 });
-
+// Cargar el carrito al cargar la página
 cargarCarrito();
