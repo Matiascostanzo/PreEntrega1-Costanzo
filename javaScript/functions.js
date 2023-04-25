@@ -132,19 +132,21 @@ cartIcon.addEventListener("click", () => {
 const contenedorCards = document.querySelector(".cardContainer");
 
 function generarCard(destino) {
+  const nombreSinEspacios = destino.nombre.replace(/\s+/g, "");
+  const nombreImagen = `images/${nombreSinEspacios.toLowerCase()}.jpg`;
+
   return `
-    <div class="card">
+    <div class="card ">
       <figure>
-        <img src="images/${destino.nombre.toLowerCase()}.jpg" alt="${
-    destino.nombre
-  }" />
+        <img src="${nombreImagen}" alt="${destino.nombre}" />
       </figure>
       <div class="contenido">
+      <h2 class="${destino.continente.toLowerCase()}" >${
+    destino.continente
+  }</h2>
         <h3>${destino.pais}</h3>
         <h5>${destino.nombre}</h5>
-        <p>
-          ${destino.texto}
-        </p>
+        <p>${destino.texto}</p>
         <h6>$${destino.precio}</h6>
         <button href="#" data-id="${
           destino.codigo
@@ -153,6 +155,7 @@ function generarCard(destino) {
     </div>
   `;
 }
+
 destinos.forEach((destino) => {
   const card = generarCard(destino);
   contenedorCards.innerHTML += card;
@@ -200,3 +203,30 @@ window.addEventListener("load", function () {
 });
 // Cargar el carrito al cargar la página
 cargarCarrito();
+
+const links = document.querySelectorAll(".link");
+
+links.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const continente = link.getAttribute("id");
+    const cards = document.querySelectorAll(
+      `.card.${continente.toLowerCase()}`
+    );
+
+    const todasLasCards = document.querySelectorAll(".card");
+
+    todasLasCards.forEach((card) => {
+      card.style.display = "none";
+    });
+
+    cards.forEach((card) => {
+      card.style.display = "block";
+    });
+
+    // Agregar clase "active" al enlace
+    const activeLink = document.querySelector(".active");
+    activeLink.classList.remove("active");
+    link.classList.add("active");
+  });
+});
