@@ -204,29 +204,60 @@ window.addEventListener("load", function () {
 // Cargar el carrito al cargar la página
 cargarCarrito();
 
-const links = document.querySelectorAll(".link");
+//Eventos para filtrar las Cards por continentes
 
-links.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    const continente = link.getAttribute("id");
-    const cards = document.querySelectorAll(
-      `.card.${continente.toLowerCase()}`
-    );
+const btnFilterContinent = document.querySelectorAll(".filtro-continente");
+const cards = document.querySelectorAll(".card");
 
-    const todasLasCards = document.querySelectorAll(".card");
+function filtrar(e) {
+  e.preventDefault();
+  const cont = e.target.id;
+  filtroContinente(cont);
+}
 
-    todasLasCards.forEach((card) => {
-      card.style.display = "none";
-    });
+const filtroContinente = (continente) => {
+  const cards = document.querySelectorAll(".card");
 
-    cards.forEach((card) => {
+  cards.forEach((card) => {
+    if (continente === "todos") {
       card.style.display = "block";
-    });
+    } else {
+      card.style.display =
+        card.querySelector(`.card .${continente}`) !== null ? "block" : "none";
+    }
+  });
+};
 
-    // Agregar clase "active" al enlace
-    const activeLink = document.querySelector(".active");
-    activeLink.classList.remove("active");
-    link.classList.add("active");
+// Función para manejar el evento de filtrado
+function filtrar(e) {
+  e.preventDefault();
+  const continente = e.target.id.toLowerCase();
+  filtroContinente(continente);
+}
+
+// Asignar eventos a los botones de filtro
+btnFilterContinent.forEach((btn) => {
+  btn.addEventListener("click", filtrar);
+});
+
+//Evento para que el menu hamburguesa se cierre cada vez que elijo un continente
+
+const filtrosContinentes = document.querySelectorAll(".filtro-continente");
+const check = document.getElementById("check");
+
+filtrosContinentes.forEach((filtro) => {
+  filtro.addEventListener("click", () => {
+    check.checked = false;
+    const links = document.querySelectorAll(".link");
+
+    links.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const check = document.getElementById("check");
+        if (check.checked) {
+          check.checked = false; // Cerrar menú hamburguesa
+          filtrarPorContinente(event.target.id); // Filtrar por continente seleccionado
+        }
+      });
+    });
   });
 });

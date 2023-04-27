@@ -83,6 +83,9 @@
             color: white;
             text-decoration: none;
           }
+          .filtro-continente:hover {
+            cursor: pointer;
+          }
         }
       }
     }
@@ -101,9 +104,9 @@
     }
   }
   .cart-container {
-    position: fixed;
-    top: 85px;
-    right: 200px;
+    position: relative;
+    top: 55px;
+    left: 300px;
     z-index: 999;
     width: 27px;
     font-size: 25px;
@@ -349,6 +352,9 @@
             color: white;
             text-decoration: none;
           }
+          .filtro-continente:hover {
+            cursor: pointer;
+          }
         }
       }
     }
@@ -367,7 +373,7 @@
     }
   }
   .cart-container {
-    position: fixed;
+    position: absolute;
     top: 85px;
     right: 200px;
     z-index: 999;
@@ -622,6 +628,9 @@
             text-decoration: none;
             padding: 7px 13px;
             text-transform: uppercase;
+          }
+          .filtro-continente:hover {
+            cursor: pointer;
           }
         }
       }

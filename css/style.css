@@ -81,6 +81,9 @@
     color: white;
     text-decoration: none;
   }
+  .header nav ul li .filtro-continente:hover {
+    cursor: pointer;
+  }
   .header #check {
     display: none;
   }
@@ -92,9 +95,9 @@
     left: 0;
   }
   .cart-container {
-    position: fixed;
-    top: 85px;
-    right: 200px;
+    position: relative;
+    top: 55px;
+    left: 300px;
     z-index: 999;
     width: 27px;
     font-size: 25px;
@@ -316,6 +319,9 @@
     color: white;
     text-decoration: none;
   }
+  .header nav ul li .filtro-continente:hover {
+    cursor: pointer;
+  }
   .header #check {
     display: none;
   }
@@ -327,7 +333,7 @@
     left: 0;
   }
   .cart-container {
-    position: fixed;
+    position: absolute;
     top: 85px;
     right: 200px;
     z-index: 999;
@@ -550,6 +556,9 @@
     text-decoration: none;
     padding: 7px 13px;
     text-transform: uppercase;
+  }
+  .header nav ul li .filtro-continente:hover {
+    cursor: pointer;
   }
   .header nav .checkbtn {
     color: white;
