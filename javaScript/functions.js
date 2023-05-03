@@ -1,6 +1,5 @@
 let destinoEncontrado = [];
 let envio = 0;
-let subtotal = 0;
 
 //Recorre el array de carrito de compras con un forEach y los muestra
 function mostrarCarrito() {
@@ -65,24 +64,21 @@ function cargarCarrito() {
 
 function elegirDestino(codigoDestino) {
   //Busca el codigo que llega por parametro al hacer click en el boton reservar en las cards
-
   destinoEncontrado = destinos.find(
     (destino) => destino.codigo == codigoDestino
   );
   console.log("Destino encontrado: ", destinoEncontrado);
   destinoEncontrado
-    ? destinoEncontrado.precio && !isNaN(parseFloat(destinoEncontrado.precio))
-      ? (carrito.push(destinoEncontrado),
-        alert(
-          `Destino agregado al carrito: ${destinoEncontrado.nombre} pais:${destinoEncontrado.pais} $USD ${destinoEncontrado.precio}`
-        ))
-      : alert(
-          "El precio del destino es inválido, por favor corregir el precio antes de agregarlo al carrito"
-        )
+    ? (carrito.push(destinoEncontrado),
+      Swal.fire({
+        icon: "success",
+        title: "Destino Agregado al carrito:",
+        html: ` <br> ${destinoEncontrado.nombre} <br> pais:${destinoEncontrado.pais} <br> $USD ${destinoEncontrado.precio}`,
+        // footer: '<a href="">Why do I have this issue?</a>'
+      }))
     : alert(
         "El código ingresado es inválido, por favor ingresar un código válido"
       );
-
   actualizarCarrito();
 }
 
@@ -213,7 +209,13 @@ const finalizarCompra = document.querySelector(".botonCompra");
 
 finalizarCompra.addEventListener("click", (e) => {
   if (carrito.length == 0) {
-    alert("No es posible finalizar la compra ya que el carrito esta vacío");
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "No es posible finalizar la compra ya que el carrito esta vacío",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   } else {
     Swal.fire({
       position: "top-end",
