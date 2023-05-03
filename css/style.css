@@ -761,6 +761,9 @@
     background: #2fb4cc;
     color: #fff;
   }
+  body td {
+    padding: 0.5rem; /* Agrega 0.5 rem de padding alrededor del contenido de cada td */
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

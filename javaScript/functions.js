@@ -2,22 +2,74 @@ let destinoEncontrado = [];
 
 //Recorre el array de carrito de compras con un forEach y los muestra
 function mostrarCarrito() {
+  const carritoContainer = document.createElement("div");
+  carritoContainer.classList.add("carrito-container");
+
   if (carrito.length == 0) {
-    alert("El carrito está vacío");
-    return;
+    const mensajeCarritoVacio = document.createElement("p");
+    mensajeCarritoVacio.textContent = "El carrito está vacío";
+    carritoContainer.appendChild(mensajeCarritoVacio);
+  } else {
+    const listaProductos = document.createElement("ul");
+
+    let subtotal = 0; // Inicializamos la variable subtotal a cero
+
+    carrito.forEach(function (producto) {
+      if (!isNaN(parseFloat(producto.precio))) {
+        // Verificamos que el precio sea un número
+        const li = document.createElement("li");
+        const nombreProducto = document.createElement("span");
+        const precioProducto = document.createElement("span");
+        const botonRestar = document.createElement("button");
+        const cantidadProducto = document.createElement("span");
+        const botonSumar = document.createElement("button");
+
+        nombreProducto.textContent = producto.nombre;
+        precioProducto.textContent = parseFloat(producto.precio).toFixed(2);
+        botonRestar.textContent = "-";
+        cantidadProducto.textContent = producto.cantidad;
+        botonSumar.textContent = "+";
+
+        botonRestar.addEventListener("click", function () {
+          if (producto.cantidad == 1) {
+            carrito.splice(carrito.indexOf(producto), 1);
+          } else {
+            producto.cantidad--;
+          }
+          mostrarCarrito();
+        });
+
+        botonSumar.addEventListener("click", function () {
+          producto.cantidad++;
+          mostrarCarrito();
+        });
+
+        li.appendChild(nombreProducto);
+        li.appendChild(precioProducto);
+        li.appendChild(botonRestar);
+        li.appendChild(cantidadProducto);
+        li.appendChild(botonSumar);
+
+        listaProductos.appendChild(li);
+
+        subtotal += parseFloat(producto.precio) * producto.cantidad; // Actualizamos el subtotal
+        console.log("Subtotal actualizado: ", subtotal);
+        console.log(typeof producto.precio);
+      }
+    });
+
+    carritoContainer.appendChild(listaProductos);
+
+    const mensajePrecioTotal = document.createElement("p");
+    mensajePrecioTotal.textContent =
+      "El precio total de las excursiones en el carrito es de: USD$ " +
+      subtotal.toFixed(2); // Usamos el subtotal actualizado para el mensaje de precio total
+    carritoContainer.appendChild(mensajePrecioTotal);
   }
 
-  carrito.forEach(function (carro) {
-    alert(
-      "Estas son tus compras: " + carro.nombre + " - " + "USD$" + carro.precio
-    ); // Mostrar solo el nombre y el precio de cada elemento en el carrito
+  Swal.fire({
+    html: carritoContainer,
   });
-
-  const precioTotal = new Eleccion(carrito);
-  alert(
-    "El precio total de las excursiones en el carrito es de: USD$ " +
-      precioTotal.subtotal()
-  );
 }
 
 //Evento para aumentar la cantidad de excursiones en el carrito
@@ -183,7 +235,13 @@ finalizarCompra.addEventListener("click", (e) => {
   if (carrito.length == 0) {
     alert("No es posible finalizar la compra ya que el carrito esta vacío");
   } else {
-    alert("Gracias por su compra! Vuelva pronto");
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Gracias por su compra",
+      showConfirmButton: false,
+      timer: 1500,
+    });
 
     carrito.length = 0;
     guardarCarrito();

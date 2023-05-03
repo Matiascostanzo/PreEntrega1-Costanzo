@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Matiascostanzo/PreEntrega1-Costanzo/issues"
   },
-  "homepage": "https://github.com/Matiascostanzo/PreEntrega1-Costanzo#readme"
+  "homepage": "https://github.com/Matiascostanzo/PreEntrega1-Costanzo#readme",
+  "dependencies": {
+    "sweetalert2": "^11.7.3"
+  }
 }
