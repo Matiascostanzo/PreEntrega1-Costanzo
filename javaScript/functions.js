@@ -1,74 +1,49 @@
 let destinoEncontrado = [];
+let envio = 0;
+let subtotal = 0;
 
 //Recorre el array de carrito de compras con un forEach y los muestra
 function mostrarCarrito() {
-  const carritoContainer = document.createElement("div");
-  carritoContainer.classList.add("carrito-container");
-
   if (carrito.length == 0) {
-    const mensajeCarritoVacio = document.createElement("p");
-    mensajeCarritoVacio.textContent = "El carrito está vacío";
-    carritoContainer.appendChild(mensajeCarritoVacio);
-  } else {
-    const listaProductos = document.createElement("ul");
-
-    let subtotal = 0; // Inicializamos la variable subtotal a cero
-
-    carrito.forEach(function (producto) {
-      if (!isNaN(parseFloat(producto.precio))) {
-        // Verificamos que el precio sea un número
-        const li = document.createElement("li");
-        const nombreProducto = document.createElement("span");
-        const precioProducto = document.createElement("span");
-        const botonRestar = document.createElement("button");
-        const cantidadProducto = document.createElement("span");
-        const botonSumar = document.createElement("button");
-
-        nombreProducto.textContent = producto.nombre;
-        precioProducto.textContent = parseFloat(producto.precio).toFixed(2);
-        botonRestar.textContent = "-";
-        cantidadProducto.textContent = producto.cantidad;
-        botonSumar.textContent = "+";
-
-        botonRestar.addEventListener("click", function () {
-          if (producto.cantidad == 1) {
-            carrito.splice(carrito.indexOf(producto), 1);
-          } else {
-            producto.cantidad--;
-          }
-          mostrarCarrito();
-        });
-
-        botonSumar.addEventListener("click", function () {
-          producto.cantidad++;
-          mostrarCarrito();
-        });
-
-        li.appendChild(nombreProducto);
-        li.appendChild(precioProducto);
-        li.appendChild(botonRestar);
-        li.appendChild(cantidadProducto);
-        li.appendChild(botonSumar);
-
-        listaProductos.appendChild(li);
-
-        subtotal += parseFloat(producto.precio) * producto.cantidad; // Actualizamos el subtotal
-        console.log("Subtotal actualizado: ", subtotal);
-        console.log(typeof producto.precio);
-      }
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "El carrito está vacío",
+      // footer: '<a href="">Why do I have this issue?</a>'
     });
-
-    carritoContainer.appendChild(listaProductos);
-
-    const mensajePrecioTotal = document.createElement("p");
-    mensajePrecioTotal.textContent =
-      "El precio total de las excursiones en el carrito es de: USD$ " +
-      subtotal.toFixed(2); // Usamos el subtotal actualizado para el mensaje de precio total
-    carritoContainer.appendChild(mensajePrecioTotal);
+    return;
   }
 
+  const tabla = document.createElement("table");
+
+  const encabezado = tabla.createTHead();
+  const filaEncabezado = encabezado.insertRow();
+  const nombreEncabezado = filaEncabezado.insertCell();
+  nombreEncabezado.innerHTML = "<b>Nombre</b>";
+  const precioEncabezado = filaEncabezado.insertCell();
+  precioEncabezado.innerHTML = "<b>Precio</b>";
+
+  const cuerpo = tabla.createTBody();
+  carrito.forEach(function (carro) {
+    const fila = cuerpo.insertRow();
+    const nombreCelda = fila.insertCell();
+    nombreCelda.textContent = carro.nombre;
+    const precioCelda = fila.insertCell();
+    precioCelda.textContent = carro.precio;
+  });
+
+  const filaTotal = cuerpo.insertRow();
+  const celdaTotalEtiqueta = filaTotal.insertCell();
+  celdaTotalEtiqueta.colSpan = 1;
+  celdaTotalEtiqueta.innerHTML = "<b>Total:</b>";
+  const celdaTotalValor = filaTotal.insertCell();
+  celdaTotalValor.colSpan = 1;
+  const precioTotal = new Eleccion(carrito).subtotal();
+  celdaTotalValor.innerHTML = "<b>USD$" + precioTotal + "</b>";
+
   Swal.fire({
-    html: carritoContainer,
+    title: "Tu carrito",
+    html: tabla.outerHTML,
   });
 }
 
@@ -84,6 +59,7 @@ function cargarCarrito() {
   if (carritoGuardado) {
     carrito = JSON.parse(carritoGuardado);
     actualizarCarrito();
+    actualizarPrecios();
   }
 }
 
@@ -95,10 +71,14 @@ function elegirDestino(codigoDestino) {
   );
   console.log("Destino encontrado: ", destinoEncontrado);
   destinoEncontrado
-    ? (carrito.push(destinoEncontrado),
-      alert(
-        `Destino agregado al carrito: ${destinoEncontrado.nombre} pais:${destinoEncontrado.pais} $USD ${destinoEncontrado.precio}`
-      ))
+    ? destinoEncontrado.precio && !isNaN(parseFloat(destinoEncontrado.precio))
+      ? (carrito.push(destinoEncontrado),
+        alert(
+          `Destino agregado al carrito: ${destinoEncontrado.nombre} pais:${destinoEncontrado.pais} $USD ${destinoEncontrado.precio}`
+        ))
+      : alert(
+          "El precio del destino es inválido, por favor corregir el precio antes de agregarlo al carrito"
+        )
     : alert(
         "El código ingresado es inválido, por favor ingresar un código válido"
       );
