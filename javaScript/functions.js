@@ -1,7 +1,13 @@
 let destinoEncontrado = [];
 let envio = 0;
 
-//Recorre el array de carrito de compras con un forEach y los muestra
+//Agrego funcion para traer datos del archivo Json
+
+fetch(URL)
+  .then((response) => response.json())
+  .then((data) => destinos.push(...data))
+  .then(() => crearCard(destinos));
+
 function mostrarCarrito() {
   if (carrito.length == 0) {
     Swal.fire({
@@ -58,7 +64,6 @@ function cargarCarrito() {
   if (carritoGuardado) {
     carrito = JSON.parse(carritoGuardado);
     actualizarCarrito();
-    actualizarPrecios();
   }
 }
 
@@ -183,26 +188,27 @@ function generarCard(destino) {
     </div>
   `;
 }
-
-destinos.forEach((destino) => {
-  const card = generarCard(destino);
-  contenedorCards.innerHTML += card;
-});
-//Evento para reservar
-//Selecciona todos los botones de "Reservar" por su clase
-const botonesReservar = document.querySelectorAll(".reservar");
-
-//Itera sobre cada botón de "Reservar" y agrega un evento de clic a cada uno
-
-botonesReservar.forEach((boton) => {
-  boton.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    const codigoDestino = boton.dataset.id;
-
-    elegirDestino(codigoDestino);
+function crearCard() {
+  destinos.forEach((destino) => {
+    const card = generarCard(destino);
+    contenedorCards.innerHTML += card;
   });
-});
+  //Evento para reservar
+  //Selecciona todos los botones de "Reservar" por su clase
+  const botonesReservar = document.querySelectorAll(".reservar");
+
+  //Itera sobre cada botón de "Reservar" y agrega un evento de clic a cada uno
+
+  botonesReservar.forEach((boton) => {
+    boton.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const codigoDestino = boton.dataset.id;
+
+      elegirDestino(codigoDestino);
+    });
+  });
+}
 
 //Evento para simular la finalizacion de la compra
 const finalizarCompra = document.querySelector(".botonCompra");
@@ -249,12 +255,6 @@ cargarCarrito();
 const btnFilterContinent = document.querySelectorAll(".filtro-continente");
 const cards = document.querySelectorAll(".card");
 
-function filtrar(e) {
-  e.preventDefault();
-  const cont = e.target.id;
-  filtroContinente(cont);
-}
-
 const filtroContinente = (continente) => {
   const cards = document.querySelectorAll(".card");
 
@@ -295,7 +295,7 @@ filtrosContinentes.forEach((filtro) => {
         const check = document.getElementById("check");
         if (check.checked) {
           check.checked = false; // Cerrar menú hamburguesa
-          filtrarPorContinente(event.target.id); // Filtrar por continente seleccionado
+          filtrar(event.target.id); // Filtrar por continente seleccionado
         }
       });
     });
