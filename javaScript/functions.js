@@ -14,7 +14,6 @@ function mostrarCarrito() {
       icon: "error",
       title: "Oops...",
       text: "El carrito está vacío",
-      // footer: '<a href="">Why do I have this issue?</a>'
     });
     return;
   }

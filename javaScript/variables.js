@@ -104,4 +104,4 @@
 
 let carrito = [];
 const destinos = [];
-const URL = "../destinos.json";
+const URL = "destinos.json";
